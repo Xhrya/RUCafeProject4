@@ -1,6 +1,5 @@
 package com.example.rucafe;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.event.Event;
 
@@ -14,7 +13,7 @@ import javafx.scene.control.Alert;
 
 import java.io.IOException;
 
-public class HomeController  {
+public class MainController {
     private int value = 10;
 
     @FXML
@@ -35,18 +34,14 @@ public class HomeController  {
         BorderPane root;
         try
         {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("foodView.fxml"));
-//            Scene scene = new Scene(500, 400);
-//            stage.setTitle("Welcome to RuCafe!");
-//            stage.setScene(scene);
-//            stage.show();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("foodView.fxml"));
             root = (BorderPane) loader.load();
             Scene scene = new Scene(root, 500, 400);
             foodView.setScene(scene);
             foodView.show();
-            FoodController FoodController = loader.getController();
+            FoodController foodController = loader.getController();
+            foodController.setMainController(this);
 
         }catch (IOException e)
         {
@@ -59,11 +54,34 @@ public class HomeController  {
         }
 
 
+
     }
 
     @FXML
-    protected void onDrinksButtonClick(Event e)
+    protected void onDrinksButtonClick()
     {
+        Stage drinksView = new Stage();
+        BorderPane root2;
+        try
+        {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("drinksView.fxml"));
+            root2 = (BorderPane) loader.load();
+            Scene scene = new Scene(root2, 500, 400);
+            drinksView.setScene(scene);
+            drinksView.show();
+            DrinksController drinksController = loader.getController();
+            drinksController.setMainController(this);
+
+        }catch (IOException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Loading View1.fxml.");
+            alert.setContentText("Couldn't load View1.fxml.");
+            alert.showAndWait();
+
+        }
 
     }
     public int getValue() {

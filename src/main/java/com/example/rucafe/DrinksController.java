@@ -7,17 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class DrinksController extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DrinksController.class.getResource("drinksView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Welcome to RuCafe!");
-        stage.setScene(scene);
-        stage.show();
-    }
+public class DrinksController {
 
-    public static void main(String[] args) {
-        launch();
+    private MainController mainController;
+
+
+    public void setMainController(MainController controller) {
+        mainController = controller;
     }
 }
