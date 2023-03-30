@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="creating coffee view">
+    <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="creating basket view + controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680121117843</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="creating basket view + controller">
+      <created>1680190010347</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680190010347</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -136,6 +143,7 @@
     <MESSAGE value="Now, each button should open a new window/scene." />
     <MESSAGE value="creating coffee + menuItem classes" />
     <MESSAGE value="creating coffee view" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating coffee view" />
+    <MESSAGE value="creating basket view + controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating basket view + controller" />
   </component>
 </project>
