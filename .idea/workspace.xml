@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="creating basket view + controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/foodView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/foodView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/homeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/homeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
