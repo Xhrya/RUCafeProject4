@@ -22,42 +22,49 @@
                 <Insets left="30.0" />
             </BorderPane.margin>
             <children>
-            <ComboBox fx:id="donutsType" prefWidth="150.0" promptText="Select Donut" />
-            <ListView prefHeight="150.0" prefWidth="150.0" />
-            <TextField text="Enter Quantity" />
+            <ComboBox fx:id="donutsType" onAction="#onDonutTypeComboSelected" prefWidth="150.0" promptText="Select Donut" />
+            <ListView fx:id="donutFlavors" prefHeight="150.0" prefWidth="150.0" />
+            <Label prefHeight="17.0" prefWidth="150.0" text="Enter Qualtity:" />
+            <TextField fx:id="quantity" />
             <HBox prefHeight="37.0" prefWidth="498.0">
                <children>
-                  <Button mnemonicParsing="false" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#onSelectDonut" text="Select" />
                </children>
             </HBox>
+            <HBox prefHeight="53.0" prefWidth="150.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="48.0" text="Total:" />
+                  <TextField fx:id="runningTotal" prefHeight="26.0" prefWidth="68.0" />
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#onAddToBasket" text="Add toBasket" />
 
             </children>
         </VBox>
     </left>
     <right>
-        <VBox alignment="CENTER_LEFT" prefHeight="312.0" prefWidth="295.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER_LEFT" prefHeight="317.0" prefWidth="295.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets left="25.0" />
             </BorderPane.margin>
             <children>
-            <Button alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="184.0" prefWidth="199.0" text="Donut">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="262.0" focusTraversable="true" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
-                     <image>
-                        <Image url="@food.jpeg" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </ImageView>
-               </graphic>
-            </Button>
-                <Label>
-                    <VBox.margin>
-                        <Insets top="20.0" />
-                    </VBox.margin>
-                </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                      <Label prefHeight="17.0" prefWidth="41.0" />
+                  <Button alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="184.0" prefWidth="199.0" text="Donut">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="262.0" focusTraversable="true" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@food.jpeg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
 
             </children>
         </VBox>
@@ -67,7 +74,7 @@
          <items>
             <HBox prefHeight="37.0" prefWidth="498.0">
                <children>
-                  <Button mnemonicParsing="false" text="Home" />
+                  <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
                   <Button mnemonicParsing="false" text="My Order" />
                   <Button mnemonicParsing="false" text="Store Orders" />
                </children>
@@ -78,4 +85,7 @@
    <top>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUCafe" wrappingWidth="42.89111328125" BorderPane.alignment="CENTER" />
    </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

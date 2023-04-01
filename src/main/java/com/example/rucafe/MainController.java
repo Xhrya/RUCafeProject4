@@ -17,11 +17,6 @@ public class MainController {
     private MainController mainController;
 
 
-    @FXML
-    Button donutsView;
-
-    @FXML
-    Button coffeeView;
 
     //when one button or another is clicked, we will
     //open either the food or drinks window
@@ -41,8 +36,8 @@ public class MainController {
             Scene scene = new Scene(root, 550, 700);
             donutsView.setScene(scene);
             donutsView.show();
-            DonutsController donutController = loader.getController();
-            donutController.setMainController(this);
+            DonutsController donutsController = loader.getController();
+            donutsController.setMainController(this);
 
         }catch (IOException e)
         {
