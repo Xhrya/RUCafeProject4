@@ -41,7 +41,7 @@
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onDrinksButtonClick" text="Drinks">
+               <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onCoffeeClickButton" text="Drinks">
                   <graphic>
 
                   </graphic>
@@ -53,7 +53,7 @@
                      </ImageView>
                   </graphic>
                </Button>
-               <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onFoodButtonClick" prefHeight="159.0" prefWidth="205.0" text="Food" textAlignment="CENTER">
+               <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onDonutsClickButton" prefHeight="159.0" prefWidth="205.0" text="Food" textAlignment="CENTER">
                   <graphic>
 
                   </graphic>
@@ -77,9 +77,9 @@
     <Label fx:id="welcomeText" />
    <ButtonBar prefHeight="40.0" prefWidth="200.0">
      <buttons>
-         <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Home" />
-         <Button mnemonicParsing="false" text="Store Orders" />
-         <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="My Order" />
+         <Button mnemonicParsing="false" onAction="#OnHomeButtonClick" prefHeight="26.0" prefWidth="135.0" text="Home" />
+         <Button mnemonicParsing="false" onAction="#onStoreOrdersClick" text="Store Orders" />
+         <Button mnemonicParsing="false" onAction="#onMyOrderClick" prefHeight="26.0" prefWidth="136.0" text="My Order" />
      </buttons>
    </ButtonBar>
 

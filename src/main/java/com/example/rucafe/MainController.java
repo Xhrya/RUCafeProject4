@@ -1,7 +1,6 @@
 package com.example.rucafe;
 
 import javafx.fxml.FXML;
-import javafx.event.Event;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,33 +14,35 @@ import java.io.IOException;
 
 public class MainController {
     private int value = 10;
+    private MainController mainController;
+
 
     @FXML
-    Button foodView;
+    Button donutsView;
 
     @FXML
-    Button drinksView;
+    Button coffeeView;
 
     //when one button or another is clicked, we will
     //open either the food or drinks window
 
 
     @FXML
-    protected void onFoodButtonClick()
+    protected void onDonutsClickButton()
     {
 
-        Stage foodView = new Stage();
+        Stage donutsView = new Stage();
         BorderPane root;
         try
         {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("foodView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("donutsView.fxml"));
             root = (BorderPane) loader.load();
-            Scene scene = new Scene(root, 500, 400);
-            foodView.setScene(scene);
-            foodView.show();
-            FoodController foodController = loader.getController();
-            foodController.setMainController(this);
+            Scene scene = new Scene(root, 550, 700);
+            donutsView.setScene(scene);
+            donutsView.show();
+            DonutsController donutController = loader.getController();
+            donutController.setMainController(this);
 
         }catch (IOException e)
         {
@@ -58,20 +59,20 @@ public class MainController {
     }
 
     @FXML
-    protected void onDrinksButtonClick()
+    protected void onCoffeeClickButton()
     {
-        Stage drinksView = new Stage();
+        Stage coffeeView = new Stage();
         BorderPane root2;
         try
         {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("drinksView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("coffeeView.fxml"));
             root2 = (BorderPane) loader.load();
-            Scene scene = new Scene(root2, 500, 400);
-            drinksView.setScene(scene);
-            drinksView.show();
-            DrinksController drinksController = loader.getController();
-            drinksController.setMainController(this);
+            Scene scene = new Scene(root2, 550, 700);
+            coffeeView.setScene(scene);
+            coffeeView.show();
+            CoffeeController coffeeController = loader.getController();
+            coffeeController.setMainController(this);
 
         }catch (IOException e)
         {
@@ -83,6 +84,49 @@ public class MainController {
 
         }
 
+    }
+
+    @FXML
+    protected void OnHomeButtonClick()
+    {
+        Stage homeView = new Stage();
+        BorderPane root2;
+        try
+        {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("homeView.fxml"));
+            root2 = (BorderPane) loader.load();
+            Scene scene = new Scene(root2, 550, 700);
+            homeView.setScene(scene);
+            homeView.show();
+            MainController homeController = loader.getController();
+            homeController.setMainController(this);
+
+        }catch (IOException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Loading View1.fxml.");
+            alert.setContentText("Couldn't load View1.fxml.");
+            alert.showAndWait();
+
+        }
+    }
+
+    @FXML
+    protected void onStoreOrdersClick()
+    {
+
+    }
+
+    @FXML
+    protected void onMyOrderClick()
+    {
+
+    }
+
+    public void setMainController(MainController controller) {
+        mainController = controller;
     }
     public int getValue() {
         return value;

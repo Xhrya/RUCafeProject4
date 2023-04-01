@@ -1,6 +1,7 @@
 package com.example.rucafe;
 
-public class FoodController {
+public class CoffeeController {
+
     private MainController mainController;
 
 
@@ -8,4 +9,3 @@ public class FoodController {
         mainController = controller;
     }
 }
-
