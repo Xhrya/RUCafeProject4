@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Coffee extends MenuItem{
 
     private String cupSize;
-    private ArrayList addIns;
+    private ArrayList<String> addIns;
     public Coffee(String size, ArrayList addIns){
         this.cupSize = size;
         this.addIns = addIns;
