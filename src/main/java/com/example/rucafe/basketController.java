@@ -40,6 +40,11 @@ public class basketController {
         String del = basketList.getSelectionModel().getSelectedItems().toString();
 
         //find the item in the arr and delete
+
+        //basket.remove();
+
+
+
         //have to recalculate subtotal after removing item
         CalculateCosts();
     }
@@ -47,6 +52,9 @@ public class basketController {
     protected void CalculateCosts(){
         subTotalCost = 0.0;
         //goes through the array and based on the item's type, adds that cost
+        for(int i =0; i<basket.size(); i++){
+            subTotalCost = subTotalCost + basket.get(i).itemPrice();
+        }
 
         //displaying the costs
         subTotal.setText("" + subTotalCost);
