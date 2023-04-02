@@ -111,19 +111,59 @@ public class MainController {
     @FXML
     protected void onStoreOrdersClick()
     {
+        Stage storeOrderView = new Stage();
+        BorderPane root2;
+        try
+        {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("storeOrderView.fxml"));
+            root2 = (BorderPane) loader.load();
+            Scene scene = new Scene(root2, 550, 700);
+            storeOrderView.setScene(scene);
+            storeOrderView.show();
+            StoreOrderController storeOrderController = loader.getController();
+            storeOrderController.setMainController(this);
+
+        }catch (IOException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Loading View1.fxml.");
+            alert.setContentText("Couldn't load View1.fxml.");
+            alert.showAndWait();
+
+        }
     }
 
     @FXML
     protected void onMyOrderClick()
     {
+        Stage basketView = new Stage();
+        BorderPane root2;
+        try
+        {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("basketView.fxml"));
+            root2 = (BorderPane) loader.load();
+            Scene scene = new Scene(root2, 550, 700);
+            basketView.setScene(scene);
+            basketView.show();
+            basketController basket = loader.getController();
+            basket.setMainController(this);
+
+        }catch (IOException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Loading basketView.fxml.");
+            alert.setContentText("Couldn't load View1.fxml.");
+            alert.showAndWait();
+
+        }
     }
 
     public void setMainController(MainController controller) {
         mainController = controller;
     }
-    public int getValue() {
-        return value;
-    }
+
 }

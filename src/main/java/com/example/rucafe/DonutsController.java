@@ -1,37 +1,40 @@
 package com.example.rucafe;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class DonutsController {
     private MainController mainController;
 
+    ArrayList<Donuts> donutList;
+
     @FXML
     ComboBox<String> donutsType;
 
-
+    @FXML
+    ListView<String> donutFlavors;
 
     @FXML
-    ListView donutFlavors;
+    TextField quantity;
 
     @FXML
-    TextArea quantity;
-
-    @FXML
-    VBox runningTotal;
+    TextField runningTotal;
 
     int runningTotalCalculated;
 
+    //create an array list of donuts that stores the info about donut
+    //the info about the donut will be: flavor, type, and quantity?
 
     public void setMainController(MainController controller) {
         mainController = controller;
@@ -39,13 +42,21 @@ public class DonutsController {
     @FXML
     protected void onDonutTypeComboSelected()
     {
+        //use observable lists here to set types of donuts
 
-        donutsType = new ComboBox();
-        donutsType.getItems().addAll(
-                "Hole",
-                "yeast",
-                "cake"
-        );
+        //this particular observable list is to set and choose type of donut
+        ObservableList<String> donutTypeList = FXCollections.observableArrayList("Hole","Yeast", "Cake");
+        donutsType.setItems(donutTypeList);
+
+
+        //now create a list for each type of flavor by each type of donut selected
+        ObservableList<String> yeastDonutFlavors = FXCollections.observableArrayList("Strawberry","Chocolate", "Vanilla", "Coconut", "Boston Creme", "Birthday Cake");
+
+        ObservableList<String> cakeDonutFlavors = FXCollections.observableArrayList("Chocolate","Vanilla", "Birthday Cake");
+        ObservableList<String> donutHolesFlavors = FXCollections.observableArrayList("Chocolate","Glazed", "Vanilla");
+
+
+
     }
 
 
@@ -60,18 +71,6 @@ public class DonutsController {
         int numberOfDonuts = Integer.parseInt(quantity.getText());
         double total=0;
 
-        if(donutType.equals("yeast"))
-        {
-            total = 1.59 * numberOfDonuts;
-        }
-        else if(donutType.equals("cake")) {
-            total = 1.79 * numberOfDonuts;
-
-        }
-        else if(donutType.equals("hole"))
-        {
-            total = 0.39 * numberOfDonuts;
-        }
 
         runningTotal.setAccessibleText("$" + total);
 
@@ -83,6 +82,7 @@ public class DonutsController {
     protected void onAddToBasket()
     {
         //add to some sort of list of donuts to sent to basket
+        //Donuts(donutsType.getItems());
     }
 
     @FXML
