@@ -155,7 +155,7 @@ public class MainController {
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
-            alert.setHeaderText("Loading View1.fxml.");
+            alert.setHeaderText("Loading basketView.fxml.");
             alert.setContentText("Couldn't load View1.fxml.");
             alert.showAndWait();
 
