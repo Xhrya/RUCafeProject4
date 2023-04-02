@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rucafe.CoffeeController">
    <bottom>
       <HBox prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -36,22 +36,22 @@
             </Text>
             <MenuButton fx:id="CoffeeQty" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0">
                <items>
-                  <MenuItem mnemonicParsing="false" text="1" />
-                  <MenuItem mnemonicParsing="false" text="2" />
-                  <MenuItem mnemonicParsing="false" text="3" />
-                  <MenuItem mnemonicParsing="false" text="4" />
-                  <MenuItem mnemonicParsing="false" text="5" />
+                  <MenuItem mnemonicParsing="false" onAction="#oneCoffee" text="1" />
+                  <MenuItem mnemonicParsing="false" onAction="#twoCoffee" text="2" />
+                  <MenuItem mnemonicParsing="false" onAction="#threeCoffee" text="3" />
+                  <MenuItem mnemonicParsing="false" onAction="#fourCoffee" text="4" />
+                  <MenuItem mnemonicParsing="false" onAction="#fiveCoffee" text="5" />
                </items>
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
             </MenuButton>
-            <TextField prefHeight="25.0" prefWidth="111.0">
+            <TextField fx:id="priceTotal" prefHeight="25.0" prefWidth="111.0">
                <HBox.margin>
                   <Insets left="-110.0" top="40.0" />
                </HBox.margin>
             </TextField>
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: pink;" text="Add to Basket" translateX="103.0">
+            <ToggleButton mnemonicParsing="false" onAction="#onAddToBasket" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: pink;" text="Add to Basket" translateX="103.0">
                <HBox.margin>
                   <Insets left="130.0" top="25.0" />
                </HBox.margin>
@@ -80,7 +80,7 @@
                   <Insets left="60.0" top="10.0" />
                </VBox.margin>
             </Text>
-            <RadioButton mnemonicParsing="false" text="Short" textFill="WHITE">
+            <RadioButton mnemonicParsing="false" onAction="#onGetSize" selected="true" text="Short" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -91,7 +91,7 @@
                   <ToggleGroup fx:id="cupSize" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Tall" textFill="WHITE" toggleGroup="$cupSize">
+            <RadioButton mnemonicParsing="false" onAction="#onGetSize" text="Tall" textFill="WHITE" toggleGroup="$cupSize">
                <font>
                   <Font size="15.0" />
                </font>
@@ -99,7 +99,7 @@
                   <Insets left="40.0" top="40.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Grande" textFill="WHITE" toggleGroup="$cupSize">
+            <RadioButton mnemonicParsing="false" onAction="#onGetSize" text="Grande" textFill="WHITE" toggleGroup="$cupSize">
                <font>
                   <Font size="15.0" />
                </font>
@@ -107,7 +107,7 @@
                   <Insets left="40.0" top="40.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Venti" textFill="WHITE" toggleGroup="$cupSize">
+            <RadioButton mnemonicParsing="false" onAction="#onGetSize" text="Venti" textFill="WHITE" toggleGroup="$cupSize">
                <font>
                   <Font size="15.0" />
                </font>
@@ -129,7 +129,7 @@
                   <Insets left="100.0" top="10.0" />
                </VBox.margin>
             </Text>
-            <CheckBox fx:id="SweetCream" mnemonicParsing="false" text="Sweet Cream" textFill="WHITE">
+            <CheckBox fx:id="SweetCream" mnemonicParsing="false" onAction="#onSweetCreamSelected" text="Sweet Cream" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -137,7 +137,7 @@
                   <Insets left="50.0" />
                </VBox.margin>
             </CheckBox>
-            <CheckBox fx:id="FrenchVanilla" mnemonicParsing="false" text="French Vanilla" textFill="WHITE">
+            <CheckBox fx:id="FrenchVanilla" mnemonicParsing="false" onAction="#onFrenchVanillaSelected" text="French Vanilla" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -145,7 +145,7 @@
                   <Insets left="50.0" top="25.0" />
                </VBox.margin>
             </CheckBox>
-            <CheckBox fx:id="IrishCream" mnemonicParsing="false" text="Irish Cream" textFill="WHITE">
+            <CheckBox fx:id="IrishCream" mnemonicParsing="false" onAction="#onIrishCreamSelected" text="Irish Cream" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -153,7 +153,7 @@
                   <Insets left="50.0" top="25.0" />
                </VBox.margin>
             </CheckBox>
-            <CheckBox fx:id="Caramel" mnemonicParsing="false" text="Caramel" textFill="WHITE">
+            <CheckBox fx:id="Caramel" mnemonicParsing="false" onAction="#onCaramelSelected" text="Caramel" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -161,7 +161,7 @@
                   <Insets left="50.0" top="25.0" />
                </VBox.margin>
             </CheckBox>
-            <CheckBox fx:id="Mocha" mnemonicParsing="false" text="Mocha" textFill="WHITE">
+            <CheckBox fx:id="Mocha" mnemonicParsing="false" onAction="#onMochaSelected" text="Mocha" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -173,4 +173,3 @@
       </VBox>
    </right>
 </BorderPane>
-
