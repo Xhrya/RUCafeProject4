@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="updated ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/basketView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/basketView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/coffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/coffeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

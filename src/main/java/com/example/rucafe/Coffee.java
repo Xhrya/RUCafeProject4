@@ -3,17 +3,19 @@ package com.example.rucafe;
 import java.util.ArrayList;
 
 public class Coffee extends MenuItem{
-
     private String cupSize;
     private ArrayList<String> addIns;
-    public Coffee(String size, ArrayList addIns){
+
+    private double coffeePrice = 0.0;
+    public Coffee(String size, ArrayList addIns, double price){
         this.cupSize = size;
         this.addIns = addIns;
+        this.coffeePrice = price;
     }
 
     @Override
     public double itemPrice(){
-        return 0.0;
+        return coffeePrice;
     }
 
     @Override
