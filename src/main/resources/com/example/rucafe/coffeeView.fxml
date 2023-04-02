@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rucafe.CoffeeController">
    <bottom>
       <HBox prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -36,11 +36,11 @@
             </Text>
             <MenuButton fx:id="CoffeeQty" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0">
                <items>
-                  <MenuItem mnemonicParsing="false" text="1" />
-                  <MenuItem mnemonicParsing="false" text="2" />
-                  <MenuItem mnemonicParsing="false" text="3" />
-                  <MenuItem mnemonicParsing="false" text="4" />
-                  <MenuItem mnemonicParsing="false" text="5" />
+                  <MenuItem mnemonicParsing="false" onAction="#oneCoffee" text="1" />
+                  <MenuItem mnemonicParsing="false" onAction="#twoCoffee" text="2" />
+                  <MenuItem mnemonicParsing="false" onAction="#threeCoffee" text="3" />
+                  <MenuItem mnemonicParsing="false" onAction="#fourCoffee" text="4" />
+                  <MenuItem mnemonicParsing="false" onAction="#fiveCoffee" text="5" />
                </items>
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
@@ -51,7 +51,7 @@
                   <Insets left="-110.0" top="40.0" />
                </HBox.margin>
             </TextField>
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: pink;" text="Add to Basket" translateX="103.0">
+            <ToggleButton mnemonicParsing="false" onAction="#onAddToBasket" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: pink;" text="Add to Basket" translateX="103.0">
                <HBox.margin>
                   <Insets left="130.0" top="25.0" />
                </HBox.margin>
@@ -173,4 +173,3 @@
       </VBox>
    </right>
 </BorderPane>
-
