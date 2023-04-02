@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="updated ui">
+    <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="Updating arraylist basketController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MenuItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/basketView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/basketView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/coffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/coffeeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680314286757</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updates to Basket and Coffee">
+      <created>1680414404637</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680414404637</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updating arraylist basketController">
+      <created>1680414609326</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680414609326</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,6 +170,8 @@
     <MESSAGE value="creating coffee view" />
     <MESSAGE value="creating basket view + controller" />
     <MESSAGE value="updated ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated ui" />
+    <MESSAGE value="Updates to Basket and Coffee" />
+    <MESSAGE value="Updating arraylist basketController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating arraylist basketController" />
   </component>
 </project>
