@@ -10,22 +10,39 @@ public class Donuts extends MenuItem {
   private final double cake = 1.79;
 
   private final double hole = 1.39;
-//
-//        if(donutType.equals("yeast"))
-//    {
-//        total = 1.59 * numberOfDonuts;
-//    }
-//        else if(donutType.equals("cake")) {
-//        total = 1.79 * numberOfDonuts;
-//
-//    }
-//        else if(donutType.equals("hole"))
-//    {
-//        total = 0.39 * numberOfDonuts;
-//    }
+
+  String donutType = "";
+  String donutFlavor = "";
+  double quantity =0;
+
+
+    public Donuts(String donutType, String donutFlavor, double quantity){
+        this.donutType = donutType;
+        this.donutFlavor = donutFlavor;
+        this.quantity = quantity;
+    }
+
     @Override
-    public double itemPrice() {
-       return 0.0;
+    public double itemPrice()
+    {
+        if(donutType.equals("Yeast Donuts"))
+        {
+            return yeast;
+        }
+        else if(donutType.equals("Cake Donuts"))
+        {
+           return cake;
+        }
+        else if(donutType.equals("Hole Donuts"))
+        {
+            return hole;
+        }
+       return 0;
+    }
+
+    public double donutPriceWithQuantity()
+    {
+        return itemPrice()*quantity;
     }
 
 
