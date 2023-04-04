@@ -1,5 +1,6 @@
 package com.example.rucafe;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
@@ -18,8 +19,12 @@ public class MainController {
 
 
 
+
     //when one button or another is clicked, we will
     //open either the food or drinks window
+
+
+    //here, I will be storing myCurrentOrder and storeOrder for ease of access
 
 
     @FXML
@@ -82,7 +87,7 @@ public class MainController {
     }
 
     @FXML
-    protected void OnHomeButtonClick()
+    protected void OnHomeButtonClick(ActionEvent actionEvent)
     {
         Stage homeView = new Stage();
         BorderPane root2;
@@ -109,43 +114,44 @@ public class MainController {
     }
 
     @FXML
-    protected void onStoreOrdersClick()
+    protected void onStoreOrdersClick(ActionEvent actionEvent)
     {
         Stage storeOrderView = new Stage();
-        BorderPane root2;
+        BorderPane root3;
         try
         {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("storeOrderView.fxml"));
-            root2 = (BorderPane) loader.load();
-            Scene scene = new Scene(root2, 550, 700);
+            root3 = (BorderPane) loader.load();
+            Scene scene = new Scene(root3, 550, 700);
             storeOrderView.setScene(scene);
+            storeOrderView.setTitle("Store Orders");
             storeOrderView.show();
-            StoreOrderController storeOrderController = loader.getController();
-            storeOrderController.setMainController(this);
+            StoreOrderController storeController = loader.getController();
+            storeController.setMainController(this);
 
         }catch (IOException e)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
-            alert.setHeaderText("Loading View1.fxml.");
-            alert.setContentText("Couldn't load View1.fxml.");
+            alert.setHeaderText("Loading storeOrderView.fxml.");
+            alert.setContentText("Couldn't load storeOrderView.fxml.");
             alert.showAndWait();
 
         }
     }
 
     @FXML
-    protected void onMyOrderClick()
+    protected void onMyOrderClick(ActionEvent actionEvent)
     {
         Stage basketView = new Stage();
-        BorderPane root2;
+        BorderPane root4;
         try
         {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("basketView.fxml"));
-            root2 = (BorderPane) loader.load();
-            Scene scene = new Scene(root2, 550, 700);
+            root4 = (BorderPane) loader.load();
+            Scene scene = new Scene(root4, 550, 700);
             basketView.setScene(scene);
             basketView.show();
             basketController basket = loader.getController();

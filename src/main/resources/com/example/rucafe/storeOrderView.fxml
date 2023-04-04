@@ -13,7 +13,7 @@
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" text="Cancel Order" />
-            <Button mnemonicParsing="false" onAction="#saveAndExport" text="Save and Export" />
+            <Button mnemonicParsing="false" text="Save and Export" />
          </children>
       </HBox>
    </bottom>
@@ -23,7 +23,7 @@
             <Label prefHeight="45.0" prefWidth="600.0" text="RUCafe" />
             <ListView fx:id="listOfOrders" prefHeight="200.0" prefWidth="200.0" />
             <Label text="Total:" />
-            <TextField />
+            <TextField fx:id="subTotal" />
          </children>
       </VBox>
    </center>

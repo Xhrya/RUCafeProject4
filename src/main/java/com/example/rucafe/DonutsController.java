@@ -18,12 +18,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static com.example.rucafe.MainController.currentDonutOrder;
+
 
 public class DonutsController implements Initializable {
     private MainController mainController;
 
     private ArrayList<Donuts> donutList = new ArrayList<Donuts>();
-    private Donuts currentDonutOrder;
+    private Donuts currentDonut;
 
     @FXML
     ComboBox<String> chooseDonutsType;
@@ -35,10 +37,10 @@ public class DonutsController implements Initializable {
     TextField quantity;
 
     @FXML
-    TextField runningTotal;
+    TextField thisDonutPrice;
 
     @FXML
-    TextField thisDonutPrice;
+    TextField donutsPriceTotal;
 
     @FXML
     ImageView donutImage;
@@ -61,7 +63,7 @@ public class DonutsController implements Initializable {
         //use observable lists here to set types of donuts
 
         //this particular observable list is to set and choose type of donut
-        ObservableList<String> donutTypeList = FXCollections.observableArrayList("Hole Donuts","Yeast Donuts", "Cake Donuts");
+        ObservableList<String> donutTypeList = FXCollections.observableArrayList("Yeast Donuts","Hole Donuts", "Cake Donuts");
         chooseDonutsType.setItems(donutTypeList);
 
         chooseDonutsType.getSelectionModel().select(0);
@@ -111,8 +113,6 @@ public class DonutsController implements Initializable {
     }
 
 
-
-
     @FXML
     protected void onSelectDonut()
     {
@@ -120,25 +120,38 @@ public class DonutsController implements Initializable {
         //check to make sure donut flavor selected
         //check to make sure quantity is greater than or equal to 1
 
-
         String donutType = chooseDonutsType.getSelectionModel().getSelectedItem();
-
+        if(donutType.equals(null))
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("Please select a donut type");
+        }
         String donutFlavor = chooseDonutFlavors.getSelectionModel().getSelectedItem();
-
+        if(donutFlavor.equals(null)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("Please select a donut flavor");
+        }
         int numberOfDonuts = Integer.parseInt(quantity.getText());
-
+        if(numberOfDonuts == 0)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("Please select the amount of donuts you would like to purchase");
+        }
     //    public Donuts(String donutType, String donutFlavor, double quantity){
-        currentDonutOrder =  new Donuts(donutType, donutFlavor, numberOfDonuts);
+        currentDonut =  new Donuts(donutType, donutFlavor, numberOfDonuts);
 
-        double displayPrice = currentDonutOrder.itemPrice() *numberOfDonuts;
+        double displayPrice = currentDonut.itemPrice() *numberOfDonuts;
 
         thisDonutPrice.setText("$" + displayPrice);
 
-        //runningTotal.setAccessibleText("$" + displayTotalPrice());
+        donutList.add(currentDonut);
 
     }
 
-    @FXML
+
     protected int displayTotalPrice() {
         int total = 0;
 
@@ -149,6 +162,8 @@ public class DonutsController implements Initializable {
 
         return total;
     }
+
+
 
 
 
@@ -167,21 +182,43 @@ public class DonutsController implements Initializable {
             alert.setContentText("No donuts selected.");
             alert.showAndWait();
         }
-        else {
-            String donutType = chooseDonutsType.getSelectionModel().getSelectedItem();
+        else if(currentDonut ==null)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("Add to Order Failed");
+            alert.setContentText("No donuts selected.");
+            alert.showAndWait();
+        }
+        else{
+            //things have already been added to a list by now. NO! Add everything from
+            //just need to import this list?
 
-            String donutFlavor = chooseDonutFlavors.getSelectionModel().getSelectedItem();
+            //
+            for(int i=0; i <donutList.size(); i++)
+            {
+                //add the order list of right now to current order
 
-            int numberOfDonuts = Integer.parseInt(quantity.getText());
-            currentDonutOrder =  new Donuts(donutType, donutFlavor, numberOfDonuts);
-            donutList.add(currentDonutOrder);
+             //   currentDonut.add(donutList.get(i));
+               // donutList.add(currentDonutOrder);
+            }
+
+            donutsPriceTotal.setText("$" + displayTotalPrice());
 
 
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation!!");
+            alert.setHeaderText("Add to Basket!");
+            alert.setContentText("Adding Donuts to Basket Confirmed!");
+            alert.showAndWait();
 
             //then create another alert for confirmation of whether we really wanna dd this to
             //order once we get all the data
         }
     }
+
+
 
     @FXML
     protected void onHomeButtonClick()
