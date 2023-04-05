@@ -18,7 +18,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static com.example.rucafe.MainController.currentDonutOrder;
 
 
 public class DonutsController implements Initializable {
@@ -46,7 +45,7 @@ public class DonutsController implements Initializable {
     ImageView donutImage;
 
 
-    int runningTotalCalculated;
+    double runningTotalCalculated;
 
     //create an array list of donuts that stores the info about donut
     //the info about the donut will be: flavor, type, and quantity?
@@ -152,14 +151,15 @@ public class DonutsController implements Initializable {
     }
 
 
-    protected int displayTotalPrice() {
-        int total = 0;
+    protected double displayTotalPrice() {
+        double total = 0;
 
         for(int i=0; i<donutList.size(); i++)
         {
             total+= donutList.get(i).donutPriceWithQuantity();
         }
 
+        total= Double.parseDouble(String.format("%.2f",total));
         return total;
     }
 
@@ -224,12 +224,12 @@ public class DonutsController implements Initializable {
     protected void onHomeButtonClick()
     {
         Stage mainView = new Stage();
-        BorderPane root2;
+        VBox root2;
         try
         {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("homeView.fxml"));
-            root2 = (BorderPane) loader.load();
+            root2 = (VBox) loader.load();
             Scene scene = new Scene(root2, 550, 700);
             mainView.setScene(scene);
             mainView.show();

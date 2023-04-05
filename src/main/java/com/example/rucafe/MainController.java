@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
@@ -145,12 +146,12 @@ public class MainController {
     protected void onMyOrderClick(ActionEvent actionEvent)
     {
         Stage basketView = new Stage();
-        BorderPane root4;
+        AnchorPane root4;
         try
         {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("basketView.fxml"));
-            root4 = (BorderPane) loader.load();
+            root4 = (AnchorPane) loader.load();
             Scene scene = new Scene(root4, 550, 700);
             basketView.setScene(scene);
             basketView.show();

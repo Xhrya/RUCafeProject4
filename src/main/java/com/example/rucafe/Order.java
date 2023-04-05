@@ -46,12 +46,23 @@ public class Order {
         return orderString;
     }
 
-    public double recalculateWithTax() //6.625% and dollars rounded to 2 decimal points
+    public double salesTax() //6.625% and dollars rounded to 2 decimal points
     {
+        double salesTax =0;
         //get the sales tax
-
+        salesTax = NJ_TAX * menuItems.itemPrice();
         //add to total
-        return 0;
+        salesTax= Double.parseDouble(String.format("%.2f",salesTax));
+        return salesTax;
+    }
+
+    public double totalWithTax() //6.625% and dollars rounded to 2 decimal points
+    {
+        double totalWithTax =0;
+        //get the sales tax
+        totalWithTax = salesTax() + menuItems.itemPrice();
+        //add to total
+        return totalWithTax;
     }
 
 

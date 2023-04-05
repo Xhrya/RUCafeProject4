@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -7,23 +8,76 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rucafe.StoreOrderController">
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="67.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Cancel Order" />
-            <Button mnemonicParsing="false" text="Save and Export" />
+            <Button mnemonicParsing="false" text="Cancel Order">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" text="Save and Export">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="10.0" top="10.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </bottom>
    <center>
       <VBox prefHeight="199.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="45.0" prefWidth="600.0" text="RUCafe" />
-            <ListView fx:id="listOfOrders" prefHeight="200.0" prefWidth="200.0" />
-            <Label text="Total:" />
-            <TextField fx:id="subTotal" />
+            <Label prefHeight="45.0" prefWidth="600.0" text="RUCafe">
+               <font>
+                  <Font size="28.0" />
+               </font></Label>
+            <ListView fx:id="listOfOrders" prefHeight="228.0" prefWidth="600.0" style="-fx-background-color: pink;" />
+            <HBox prefHeight="8.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="55.0" text="Subtotal">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="subTotal">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="56.0" text="Sales Tax">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="salesTax" prefHeight="26.0" prefWidth="156.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="55.0" text="Total">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="total">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </center>
