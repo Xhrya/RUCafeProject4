@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package com.example.rucafe;
 
 import javafx.application.Application;
@@ -44,10 +48,19 @@ public class StoreOrderController implements Initializable {
 
 
     //import all the orders from myBasket
+
+    /**
+     * Sets the main controller
+     * @param controller is the main controller
+     */
     public void setMainController (MainController controller){
         mainController = controller;
     }
 
+    /**
+     * Selects a specific order
+     * @param actionEvent is under the case this order is selected
+     */
     @FXML
     protected void onChooseOrderNumber(ActionEvent actionEvent)
     {
@@ -74,6 +87,10 @@ public class StoreOrderController implements Initializable {
 
 
 
+    /**
+     * Cancels the selected order
+     * @param event is under the case this order is selected
+     */
     @FXML
     protected void onCancelOrder(ActionEvent event)
     {
@@ -96,6 +113,10 @@ public class StoreOrderController implements Initializable {
 
     }
 
+    /**
+     * Saves and exports the order
+     * @param event is under the case this order is selected
+     */
     @FXML
     protected void onSaveAndExport(ActionEvent event)
     {
@@ -137,6 +158,11 @@ public class StoreOrderController implements Initializable {
     }
 
 
+    /**
+     * Initializes the controller
+     * @param location  creates location
+     * @param resources intializes resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(storeOrderListMain != null)

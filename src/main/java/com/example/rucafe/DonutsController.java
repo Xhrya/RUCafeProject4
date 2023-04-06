@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package com.example.rucafe;
 
 import javafx.collections.FXCollections;
@@ -45,11 +49,20 @@ public class DonutsController implements Initializable{
     //create an array list of donuts that stores the info about donut
     //the info about the donut will be: flavor, type, and quantity?
 
+    /**
+     * Sets the main controller
+     * @param controller is the main controller
+     */
     public void setMainController(MainController controller) {
         mainController = controller;
         //currentOrderList= list;
     }
 
+    /**
+     * Initializes the controller
+     * @param location  creates location
+     * @param resources intializes resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //public so this initialize method can be used by other methods
@@ -80,6 +93,9 @@ public class DonutsController implements Initializable{
 
     }
 
+    /**
+     * Displays according to the type of donut that is selected
+     */
     @FXML
     protected void onDonutTypeComboSelected() {
         Object currentDonutTypeSelection = chooseDonutsType.getSelectionModel().getSelectedItem();
@@ -102,6 +118,9 @@ public class DonutsController implements Initializable{
     }
 
 
+    /**
+     * Display based on the donut and the flavor are selected, otherwise warning
+     */
     @FXML
     protected void onSelectDonut() {
         //check to make sure donut type selected
@@ -138,6 +157,9 @@ public class DonutsController implements Initializable{
     }
 
 
+    /**
+     * Display price based on what has been selected
+     * */
     protected double displayTotalPrice() {
         double total = 0;
 
@@ -150,6 +172,9 @@ public class DonutsController implements Initializable{
     }
 
 
+    /**
+     * Adds donuts to basket
+     */
     @FXML
     protected void onAddToBasket() throws IOException {
 

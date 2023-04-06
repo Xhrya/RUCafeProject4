@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package com.example.rucafe;
 
 import javafx.event.ActionEvent;
@@ -14,6 +18,9 @@ public class CoffeeController {
     private int quantity = 1;
 //    private double currentPrice = 1.89;
     ArrayList addIns = new ArrayList();
+
+    public CoffeeController() throws IOException {
+    }
 
     public void setMainController(MainController controller) {
         mainController = controller;
@@ -36,27 +43,45 @@ public class CoffeeController {
     @FXML
     TextField priceTotal;
 
+    /**
+     * Updates price if quantity is changed
+     */
     public void oneCoffee(ActionEvent actionEvent) {quantity = 1;
 //        priceTotal.setText("$" + String.format("%.2f",(currentPrice * quantity)));
         displayPrice();
     }
+    /**
+     * Updates price if quantity is changed
+     */
     public void twoCoffee(ActionEvent actionEvent) {quantity = 2;
 //        priceTotal.setText("$" + String.format("%.2f",(currentPrice * quantity)));
         displayPrice();
     }
+    /**
+     * Updates price if quantity is changed
+     */
     public void threeCoffee(ActionEvent actionEvent) {quantity = 3;
 //        priceTotal.setText("$" + String.format("%.2f",(currentPrice * quantity)));
         displayPrice();
     }
+    /**
+     * Updates price if quantity is changed
+     */
     public void fourCoffee(ActionEvent actionEvent) {quantity = 4;
 //        priceTotal.setText("$" + String.format("%.2f",(currentPrice * quantity)));
         displayPrice();
     }
+    /**
+     * Updates price if quantity is changed
+     */
     public void fiveCoffee(ActionEvent actionEvent) {quantity = 5;
 //        priceTotal.setText("$" + String.format("%.2f",(currentPrice * quantity)));
         displayPrice();
     }
 
+    /**
+     * Updates price if this add-in is selected
+     */
     @FXML
     protected void onSweetCreamSelected(Event e){
 //        addIns.add(AddIns.SWEETCREAM);
@@ -65,6 +90,9 @@ public class CoffeeController {
         displayPrice();
     }
 
+    /**
+     * Updates price if this add-in is selected
+     */
     @FXML
     protected void onFrenchVanillaSelected(Event e){
 //        addIns.add(AddIns.FRENCHVANILLA);
@@ -73,6 +101,9 @@ public class CoffeeController {
         displayPrice();
     }
 
+    /**
+     * Updates price if this add-in is selected
+     */
     @FXML
     protected void onIrishCreamSelected(Event e){
 //        addIns.add(AddIns.IRISHCREAM);
@@ -81,6 +112,9 @@ public class CoffeeController {
         displayPrice();
     }
 
+    /**
+     * Updates price if this add-in is selected
+     */
     @FXML
     protected void onCaramelSelected(Event e){
 //        addIns.add(AddIns.CARAMEL);
@@ -89,6 +123,9 @@ public class CoffeeController {
         displayPrice();
     }
 
+    /**
+     * Updates price if this add-in is selected
+     */
     @FXML
     protected void onMochaSelected(Event e){
 //        addIns.add(AddIns.MOCHA);
@@ -97,6 +134,9 @@ public class CoffeeController {
         displayPrice();
     }
 
+    /**
+     * Updates price if size is changed
+     */
     @FXML
     protected void onGetSize(Event e){
 //        String size = cupSize.getSelectedToggle().toString();
@@ -115,22 +155,16 @@ public class CoffeeController {
         displayPrice();
     }
 
+    /**
+     * Adds the coffee to the basket
+     * @param e is the event that the add button is clicked
+     */
     @FXML
     protected void onAddToBasket(Event e) throws IOException {
-        FileWriter myWriter = new FileWriter("coffeeFile.txt");
+        FileWriter myWriter = new FileWriter("coffeeFile.txt", true);
         double price = 0.0;
         String size = cupSize.getSelectedToggle().toString();
         size = size.substring(size.indexOf("'") +1, size.length() -1);
-
-//        if(size.equals("Short")){
-//            price = price + 1.89;
-//        }else if(size.equals("Tall")){
-//            price = price + 2.29;
-//        }else if(size.equals("Grande")){
-//            price = price + 2.69;
-//        }else if(size.equals("Venti")){
-//            price = price + 3.09;
-//        }
 
         if(SweetCream.isSelected()){
             addIns.add(AddIns.SWEETCREAM);
@@ -164,6 +198,9 @@ public class CoffeeController {
         myWriter.close();
     }
 
+    /**
+     * Helper method to update the running price
+     */
     private double displayPrice(){
         double currPrice = 0.0;
         String size = cupSize.getSelectedToggle().toString();

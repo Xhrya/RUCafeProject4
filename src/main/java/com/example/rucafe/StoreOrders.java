@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package com.example.rucafe;
 
 import java.util.ArrayList;
@@ -21,6 +25,10 @@ public class StoreOrders {
         return listOfOrders;
     }
 
+    /**
+     * Gets the correct order based on the number
+     * @param orderNumber number assigned to the correct order
+     */
     public Order getOrder(int orderNumber) //return the order based on order number
     {//find the index of the order
         Order thisOrder = new Order();
@@ -35,11 +43,21 @@ public class StoreOrders {
         return thisOrder;
     }
 
+
+    /**
+     * sets the order number to this basket
+     * @param on is the order number of the basket
+     */
     public void setOrderNumber(int on)
     {
         orderNumber = on;
     }
 
+
+    /**
+     * Adds the order to the array
+     * @param order is the order number of the basket
+     */
     public boolean addOrder(Order order)
     {
         if(order!= null)
@@ -52,7 +70,10 @@ public class StoreOrders {
     }
 
 
-
+    /**
+     * removes the order from the array
+     * @param order is the order number of the basket
+     */
     public boolean removeOrder(Order order)
     {
         if(order!= null)
@@ -65,11 +86,17 @@ public class StoreOrders {
         return false;
     }
 
+    /**
+     * Returns the number of orders
+     */
     public int getNumberOrders()
     {
         return listOfOrders.size();
     }
 
+    /**
+     * the orders are returned as a list
+     */
     public String toString()
     {
         String storeOrdersString = "";
@@ -79,7 +106,5 @@ public class StoreOrders {
         }
         return storeOrdersString;
     }
-
-
 
 }

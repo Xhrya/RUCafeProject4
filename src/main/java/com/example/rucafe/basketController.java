@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package com.example.rucafe;
 
 import javafx.beans.Observable;
@@ -7,12 +11,15 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -32,9 +39,16 @@ public class basketController implements Initializable {
     @FXML
     ListView basketList;
 
+    /**
+     * delcaring basket controller
+     */
     public basketController() {
     }
 
+    /**
+     * connecting to the main controller
+     * @param controller the main controller
+     */
     public void setMainController(MainController controller) {this.mainController = controller;}
     ArrayList<MenuItem> basket = new ArrayList<MenuItem>(); //don't need this can reference from Order class
 
@@ -44,45 +58,78 @@ public class basketController implements Initializable {
 //        CalculateCosts();
 //    } --> what is this
 
+    /**
+     * reads information about menuitems from file to put into basket
+     */
     public void importFile() throws FileNotFoundException {
         addCoffees();
         basketList.setItems(orderedItems);
         CalculateCosts();
 
-        //tmew i will fix this to calcuate costs, removeclick, + system testing
+        //tmew i will fix this to calcuate costs, + system testing
 
     }
 
+    /**
+     * Item is removed from the basket
+     * @param e is the event that the remove button is selected
+     */
     @FXML
     protected void onRemoveSelectedItem(ActionEvent e){
         int del = basketList.getSelectionModel().getSelectedIndex();
+        if(del == -1){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("No item has been selected to remove.");
+            return;
+        }
+        //delete from observable list
         orderedItems.remove(del);
+
+        //delete from the array
+        currentOrder.getOrderList().remove(del);
         basketList.setItems(orderedItems);
 
         //recalculate after removing item!!!
         CalculateCosts();
     }
 
+    /**
+     * Places the order
+     * @param e is the event that the place order button is selected
+     */
     @FXML
-    protected void onPlaceOrder(ActionEvent e){
+    protected void onPlaceOrder(ActionEvent e) throws IOException {
+        //
 
+        //clears out the coffee file for a new order
+        FileWriter clearWriter = new FileWriter("coffeeFile.txt", true);
+        clearWriter.write("");
+        clearWriter.close();
     }
 
 
+    /**
+     * Calculates the basket's costs
+     */
     protected void CalculateCosts(){
         subTotalCost = 0.0;
+
         //goes through the array and based on the item's type, adds that cost
         for(int i =0; i<currentOrder.getOrderList().size(); i++){
             subTotalCost = subTotalCost + currentOrder.getOrderList().get(i).itemPrice();
         }
-
         //displaying the costs
-
         subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
         totalTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
         totalCost.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
     }
 
+    /**
+     * Initializes the controller
+     * @param location  creates location
+     * @param resources intializes resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -103,9 +150,15 @@ public class basketController implements Initializable {
 //        CalculateCosts();
     }
 
+    /**
+     * Reads from coffee file to create basket items
+     */
     private void addCoffees() throws FileNotFoundException {
         //reads through each line of the file of coffee
         Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
+        if(!fileScanner.hasNextLine()){
+            return;
+        }
         while (fileScanner.hasNextLine()) {
             String line = fileScanner.nextLine();
 
@@ -135,6 +188,9 @@ public class basketController implements Initializable {
             orderedItems.add(line.substring(0, '$'));
         }
     }
+
+
+
 }
 
 

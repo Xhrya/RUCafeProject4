@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package com.example.rucafe;
 
 import javafx.scene.control.Menu;
@@ -17,22 +21,38 @@ public class Order {
     //it's the list of all the items chosen to odder(the different donuts and etc)
 
 
+
+    /**
+     * Creates a default order
+     */
     public Order()
     {
         orderNumber =1;
         orderList= new ArrayList<MenuItem>();
     }
 
+
+    /**
+     * Arraylist of orders is returned
+     */
     public ArrayList<MenuItem> getOrderList()
     {
         return this.orderList;
     }
 
+
+    /**
+     * Adds donuts to orderlist
+     */
     public void addDonut(Donuts a)
     {
         orderList.add(a);
     }
 
+
+    /**
+     * Adds coffee to orderlist
+     */
     public void addCoffee(Coffee c)
     {
         orderList.add(c);
@@ -49,11 +69,21 @@ public class Order {
         }
     }
 
+
+    /**
+     * sets the order number to this basket
+     * @param orderNumber is the order number of the basket
+     */
+
     public void setOrderNumber(int orderNumber)
     {
         this.orderNumber =orderNumber;
     }
 
+
+    /**
+     * Returns the order number
+     */
     public int getOrderNumber()
     {
         return orderNumber;
@@ -64,11 +94,20 @@ public class Order {
 //
 //    }
 
+
+    /**
+     * Returns the size of the order
+     */
     public int getOrderListSize()
     {
         return orderList.size();
     }
 
+
+    /**
+     * Converts the selected menuitem to a string
+     * @param index shows which item to select
+     */
     public String menuItemAsString(int index)
     {
         String outputString = "";
@@ -77,6 +116,10 @@ public class Order {
         return outputString;
     }
 
+
+    /**
+     * Converts order to string
+     */
     public String toString()
     {
         String orderString = "Order #" + this.orderNumber + " Total: $" + this.totalWithTax() + "(" + this.orderNumber + ")";
@@ -89,6 +132,10 @@ public class Order {
         return orderString;
     }
 
+
+    /**
+     * Calculates the tax of the order
+     */
     public double salesTax() //6.625% and dollars rounded to 2 decimal points
     {
         double salesTax =0;
@@ -99,6 +146,10 @@ public class Order {
         return salesTax;
     }
 
+
+    /**
+     * Calculates the total with the tax
+     */
     public double totalWithTax() //6.625% and dollars rounded to 2 decimal points
     {
         double totalWithTax =0;

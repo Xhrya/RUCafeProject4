@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package com.example.rucafe;
 
 import java.lang.reflect.Array;
@@ -16,12 +20,21 @@ public class Donuts extends MenuItem {
   double quantity =0;
 
 
+    /**
+     * Constructor for donuts
+     * @param donutFlavor the flavor of the donut
+     * @param donutType the type of the donut
+     * @param quantity is the number of donuts
+     */
     public Donuts(String donutType, String donutFlavor, double quantity){
         this.donutType = donutType;
         this.donutFlavor = donutFlavor;
         this.quantity = quantity;
     }
 
+    /**
+     * Returns the price of the donut based on its type
+     */
     @Override
     public double itemPrice()
     {
@@ -40,16 +53,25 @@ public class Donuts extends MenuItem {
        return 0;
     }
 
+    /**
+     * Returns the price of the donut based on its type and quantity
+     */
     public double donutPriceWithQuantity()
     {
         return itemPrice()*quantity;
     }
 
-
+    /**
+     * compares the menuitems
+     */
     @Override
     public int compareTo(MenuItem o) {
         return 0;
     }
+
+    /**
+     * donut item changed to string
+     */
     @Override
     public String toString()
     {
@@ -57,4 +79,6 @@ public class Donuts extends MenuItem {
         outputString += donutType + " " + donutFlavor + " (" + quantity + ")";
         return outputString;
     }
+
+
 }
