@@ -28,9 +28,14 @@ public class Order {
         return this.orderList;
     }
 
-    public void add(Donuts a)
+    public void addDonut(Donuts a)
     {
         orderList.add(a);
+    }
+
+    public void addCoffee(Coffee c)
+    {
+        orderList.add(c);
     }
 
     public void remove(Donuts a)

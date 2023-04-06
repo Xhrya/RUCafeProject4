@@ -22,4 +22,9 @@ public class Coffee extends MenuItem{
     public int compareTo(MenuItem o) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return ("COFFEE: " + this.cupSize + " ADD-INS:" +  addIns.toString().toLowerCase());
+    }
 }
