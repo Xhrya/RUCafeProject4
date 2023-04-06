@@ -1,3 +1,1 @@
-COFFEE: Grande ADD-INS:[sweetcream, frenchvanilla, irishcream]$3.5899999999999994
-COFFEE: Grande ADD-INS:[sweetcream, frenchvanilla, irishcream]$3.5899999999999994
-COFFEE: Grande ADD-INS:[sweetcream, frenchvanilla, irishcream]$3.5899999999999994
+COFFEE: Grande ADD-INS:[irishcream]$2.9899999999999998

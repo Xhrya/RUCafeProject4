@@ -35,6 +35,36 @@ public class StoreOrders {
         return thisOrder;
     }
 
+    public void setOrderNumber(int on)
+    {
+        orderNumber = on;
+    }
+
+    public boolean addOrder(Order order)
+    {
+        if(order!= null)
+        {
+            order.setOrderNumber(getListOfOrders().size());
+            listOfOrders.add(order);
+            return true;
+        }
+        return false;
+    }
+
+
+
+    public boolean removeOrder(Order order)
+    {
+        if(order!= null)
+        {
+            if (listOfOrders.contains(order)) {
+                listOfOrders.remove(order);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getNumberOrders()
     {
         return listOfOrders.size();

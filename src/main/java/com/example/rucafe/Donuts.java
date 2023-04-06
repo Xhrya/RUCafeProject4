@@ -50,4 +50,11 @@ public class Donuts extends MenuItem {
     public int compareTo(MenuItem o) {
         return 0;
     }
+    @Override
+    public String toString()
+    {
+        String outputString = "";
+        outputString += donutType + " " + donutFlavor + " (" + quantity + ")";
+        return outputString;
+    }
 }
