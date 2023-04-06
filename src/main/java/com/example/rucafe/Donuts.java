@@ -10,11 +10,6 @@ import java.util.ArrayList;
 public class Donuts extends MenuItem {
 
 
-  private final double yeast = 1.59;
-  private final double cake = 1.79;
-
-  private final double hole = 1.39;
-
   String donutType = "";
   String donutFlavor = "";
   double quantity =0;
@@ -40,15 +35,15 @@ public class Donuts extends MenuItem {
     {
         if(donutType.equals("Yeast Donuts"))
         {
-            return yeast;
+            return DonutPrices.YEAST.getPrice();
         }
         else if(donutType.equals("Cake Donuts"))
         {
-           return cake;
+           return DonutPrices.CAKE.getPrice();
         }
         else if(donutType.equals("Hole Donuts"))
         {
-            return hole;
+            return DonutPrices.HOLE.getPrice();
         }
        return 0;
     }

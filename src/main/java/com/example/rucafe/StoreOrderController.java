@@ -66,24 +66,28 @@ public class StoreOrderController implements Initializable {
     protected void onChooseOrderNumber(ActionEvent actionEvent)
     {
         int order = Integer.parseInt((String)orderChooser.getSelectionModel().getSelectedItem());
-        StoreOrders orders = new StoreOrders();
-        Order thisOrder = orders.getOrder(order);
 
         listOfOrders.getItems().clear();
         //we want to call this entire order form storeOrders
 
         if(!orderList.isEmpty())
         {
-            for(int i =0; i<thisOrder.getOrderListSize(); i++)
-            {
-               // listOfOrders.add(thisOrder.getMenuString(i)); //get this to show up in the listview
-            }
+
+//               // listOfOrders.add(thisOrder.getMenuString(i)); //get this to show up in the listview
+//
+//                for(int i=0; i<storeOrderListMain.getOrder(order).getOrderListSize(); i++){
+                    observeOrderList.add(storeOrderListMain.getOrder(order).toString());
+//                }
+                listOfOrders.setItems(observeOrderList);
+                //subTotal.setText("$" + calculateFinalPrices());
+
 
         }
 
         //listOfOrders.setItems(thisOrder);
 
-        subTotal.setText("$" + thisOrder.totalWithTax());
+        subTotal.setText("$" + storeOrderListMain.getOrder(order).totalWithTax());
+
     }
 
 
@@ -177,6 +181,7 @@ public class StoreOrderController implements Initializable {
                 observeOrderList.add(storeOrderListMain.getOrder(i).toString());
             }
             listOfOrders.setItems(observeOrderList);
+          // subTotal.setText("$" + calculateFinalPrices());
         }
 
 
@@ -197,17 +202,17 @@ public class StoreOrderController implements Initializable {
 //        }
     }
 
-    public void calculateFinalPrices(){
-
-
-        //goes through the array and based on the item's type, adds that cost
-//        for(int i =0; i<currentOrder.getOrderList().size(); i++){
-//            subTotalCost = subTotalCost + currentOrder.getOrderList().get(i).itemPrice();
-//        }
-//        //displaying the costs
-//        subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
-//        totalTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
-//        totalCost.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
-    }
+//    public int calculateFinalPrices(){
+//
+//
+//      //  goes through the array and based on the item's type, adds that cost
+////        for(int i =0; i<currentOrder.getOrderList().size(); i++){
+////            subTotalCost = subTotalCost + currentOrder.getOrderList().get(i).itemPrice();
+////        }
+////        //displaying the costs
+////        subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
+////        totalTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
+////        totalCost.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
+//    }
 
 }
