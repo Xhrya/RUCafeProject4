@@ -155,16 +155,4 @@ public class StoreOrderController implements Initializable {
         }
     }
 
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        if (!(myStore.hasNoOrders())) {
-//            repopulateOrderNumberComboBox();
-//            updateListOrders();
-//        }
-//        else {
-//            orderNumberBox.getItems().clear();
-//            orderItemsDisplay.getItems().clear();
-//            recalulatePriceTotal();
-//        }
-//    }
 }
