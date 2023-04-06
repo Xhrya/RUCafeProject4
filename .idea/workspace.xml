@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="created a storeOrderList and need to get these store orders to show up in the StoreOrderController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeFile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680811646516</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="created a storeOrderList and need to get these store orders to show up in the StoreOrderController">
+      <created>1680811788682</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680811788682</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
