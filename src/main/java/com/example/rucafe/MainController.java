@@ -13,11 +13,13 @@ import javafx.scene.control.Alert;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainController {
-    private int value = 10;
     private MainController mainController;
 
+    private  ArrayList<MenuItem> orderList = new ArrayList<>();
+    private MenuItem basket;
 
 
 
@@ -43,7 +45,7 @@ public class MainController {
             donutsView.setScene(scene);
             donutsView.show();
             DonutsController donutsController = loader.getController();
-            donutsController.setMainController(this);
+            donutsController.setMainController(this, orderList);
 
         }catch (IOException e)
         {

@@ -1,6 +1,7 @@
 package com.example.rucafe;
 
 import javafx.application.Application;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,32 +11,64 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class StoreOrderController implements Initializable {
+public class StoreOrderController {
     private MainController mainController;
 
     @FXML
     protected TextField subTotal;
 
     @FXML
-    private ListView<Order> listOfOrders;
+    protected ListView listOfOrders;
+
+    @FXML
+    MenuButton orderChooser;
+
+    //create two observable lists?
 
     ArrayList<MenuItem> orderList = new ArrayList<MenuItem>();
     //call the order class in order to get order number and etc
 
 
+
     //import all the orders from myBasket
     public void setMainController (MainController controller){
         mainController = controller;
+    }
+
+    @FXML
+    protected void onChooseOrderNumber(ActionEvent actionEvent)
+    {
+        int order = Integer.parseInt(orderChooser.getText());
+        StoreOrders orders = new StoreOrders();
+        Order thisOrder = orders.getOrder(order);
+
+        listOfOrders.getItems().clear();
+        //we want to call this entire order form storeOrders
+
+        if(!orderList.isEmpty())
+        {
+            for(int i =0; i<thisOrder.getOrderListSize(); i++)
+            {
+               // listOfOrders.add(thisOrder.getMenuString(i)); //get this to show up in the listview
+            }
+
+        }
+
+        //listOfOrders.setItems(thisOrder);
+
+        subTotal.setText("$" + thisOrder.totalWithTax());
     }
 
 
@@ -103,11 +136,5 @@ public class StoreOrderController implements Initializable {
     }
 
 
-    @Override
 
-    public void initialize(URL location, ResourceBundle resources) {
-        listOfOrders.getItems().clear();
-
-
-    }
 }

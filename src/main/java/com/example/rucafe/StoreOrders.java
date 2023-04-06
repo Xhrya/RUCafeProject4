@@ -7,7 +7,7 @@ public class StoreOrders {
     //call all the orders from orders class
     //create an array of all the orders that basket gets
 
-    private Order order = new Order();
+    //private Order order = new Order();
     private int orderNumber;
     private ArrayList<Order> listOfOrders;
 
@@ -21,13 +21,19 @@ public class StoreOrders {
         return listOfOrders;
     }
 
-//    public Order getOrder(int orderNumber) //return the order based on order number
-//    {//find the index of the order
-//        for(int i=0;i<listOfOrders.size();i++)
-//        {
-//
-//        }
-//    } --> I DONT NEED THIS
+    public Order getOrder(int orderNumber) //return the order based on order number
+    {//find the index of the order
+        Order thisOrder = new Order();
+        for(int i=0;i<listOfOrders.size();i++)
+        {
+            if(listOfOrders.get(i).getOrderNumber() == orderNumber)
+            {
+                thisOrder= listOfOrders.get(i);
+            }
+        }
+
+        return thisOrder;
+    }
 
     public int getNumberOrders()
     {

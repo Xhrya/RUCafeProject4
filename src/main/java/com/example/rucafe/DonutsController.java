@@ -14,8 +14,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -23,7 +25,9 @@ import java.util.ResourceBundle;
 public class DonutsController implements Initializable {
     private MainController mainController;
 
-    private ArrayList<Donuts> donutList = new ArrayList<Donuts>();
+    private ArrayList<Donuts> donutList;
+    private ArrayList<Order> currentOrderList;
+
     private Donuts currentDonut;
 
     @FXML
@@ -45,13 +49,14 @@ public class DonutsController implements Initializable {
     ImageView donutImage;
 
 
-    double runningTotalCalculated;
 
     //create an array list of donuts that stores the info about donut
     //the info about the donut will be: flavor, type, and quantity?
 
-    public void setMainController(MainController controller) {
+    public void setMainController(MainController controller, ArrayList<MenuItem> basket)
+    {
         mainController = controller;
+        //currentOrderList= list;
     }
 
     @Override
@@ -191,13 +196,14 @@ public class DonutsController implements Initializable {
             alert.showAndWait();
         }
         else{
-            //things have already been added to a list by now. NO! Add everything from
             //just need to import this list?
 
-            //
+
             for(int i=0; i <donutList.size(); i++)
             {
-                //add the order list of right now to current order
+                basket.add(currentOrderList.get(i));
+
+
 
              //   currentDonut.add(donutList.get(i));
                // donutList.add(currentDonutOrder);
