@@ -180,23 +180,18 @@ public class CoffeeController {
         }
 
         if(SweetCream.isSelected()){
-//            addIns.add("Sweet Cream");
             currPrice = currPrice + AddIns.SWEETCREAM.getPrice();
         }
         if(FrenchVanilla.isSelected()){
-//            addIns.add("French Vanilla");
             currPrice = currPrice + AddIns.FRENCHVANILLA.getPrice();
         }
         if(IrishCream.isSelected()){
-//            addIns.add("Irish Cream");
             currPrice = currPrice + AddIns.IRISHCREAM.getPrice();
         }
         if(Caramel.isSelected()){
-//            addIns.add("Caramel");
             currPrice = currPrice + AddIns.CARAMEL.getPrice();
         }
         if(Mocha.isSelected()){
-//            addIns.add("Mocha");
             currPrice = currPrice + AddIns.MOCHA.getPrice();
         }
 

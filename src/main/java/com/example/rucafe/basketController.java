@@ -3,12 +3,14 @@ package com.example.rucafe;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -52,20 +54,17 @@ public class basketController implements Initializable {
     }
 
     @FXML
-    protected void onRemoveSelectedItem(Event e){
-//        String del = basketList.getSelectionModel().getSelectedItems().toString();
-//        System.out.println(del);
-//
-//        //find the item in the arr and delete
-//
-//        //basket.remove();
-//
-//        //have to recalculate subtotal after removing item
-//        CalculateCosts();
+    protected void onRemoveSelectedItem(ActionEvent e){
+        int del = basketList.getSelectionModel().getSelectedIndex();
+        orderedItems.remove(del);
+        basketList.setItems(orderedItems);
+
+        //recalculate after removing item!!!
+        CalculateCosts();
     }
 
     @FXML
-    protected void onPlaceOrder(Event e){
+    protected void onPlaceOrder(ActionEvent e){
 
     }
 

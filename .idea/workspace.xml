@@ -7,9 +7,8 @@
     <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="basket update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffeeFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/DonutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/DonutsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/coffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/coffeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/donutsView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/rucafe/donutsView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
