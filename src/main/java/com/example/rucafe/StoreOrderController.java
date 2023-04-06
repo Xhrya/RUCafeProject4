@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -23,7 +20,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class StoreOrderController {
+import static com.example.rucafe.MainController.storeOrderListMain;
+
+public class StoreOrderController implements Initializable {
     private MainController mainController;
 
     @FXML
@@ -33,12 +32,14 @@ public class StoreOrderController {
     protected ListView listOfOrders;
 
     @FXML
-    MenuButton orderChooser;
+    ComboBox orderChooser;
 
     //create two observable lists?
 
     ArrayList<MenuItem> orderList = new ArrayList<MenuItem>();
     //call the order class in order to get order number and etc
+
+    private ObservableList<String> orderNumbersTotal = FXCollections.observableArrayList();
 
 
 
@@ -50,7 +51,7 @@ public class StoreOrderController {
     @FXML
     protected void onChooseOrderNumber(ActionEvent actionEvent)
     {
-        int order = Integer.parseInt(orderChooser.getText());
+        int order = Integer.parseInt((String)orderChooser.getSelectionModel().getSelectedItem());
         StoreOrders orders = new StoreOrders();
         Order thisOrder = orders.getOrder(order);
 
@@ -136,5 +137,34 @@ public class StoreOrderController {
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(storeOrderListMain != null)
+        {
+            orderChooser.getItems().clear();
+            orderNumbersTotal.clear();
+            for (int i = 0; i < storeOrderListMain.getNumberOrders(); i++) {
+                String orderNumber = String.valueOf(storeOrderListMain.getListOfOrders().get(i).getOrderNumber());
+                orderNumbersTotal.add(orderNumber);
+            }
+            orderChooser.setItems(orderNumbersTotal);
+            orderChooser.getSelectionModel().select(0);
+        }
+        else {
 
+        }
+    }
+
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        if (!(myStore.hasNoOrders())) {
+//            repopulateOrderNumberComboBox();
+//            updateListOrders();
+//        }
+//        else {
+//            orderNumberBox.getItems().clear();
+//            orderItemsDisplay.getItems().clear();
+//            recalulatePriceTotal();
+//        }
+//    }
 }

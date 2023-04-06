@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -14,13 +15,15 @@ import javafx.scene.control.Alert;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
     private MainController mainController;
     File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
-    private  ArrayList<MenuItem> orderList = new ArrayList<>();
-    private MenuItem basket;
+    protected static StoreOrders storeOrderListMain;
+
 
 
 
@@ -46,7 +49,7 @@ public class MainController {
             donutsView.setScene(scene);
             donutsView.show();
             DonutsController donutsController = loader.getController();
-            donutsController.setMainController(this, orderList);
+            donutsController.setMainController(this);
 
         }catch (IOException e)
         {
@@ -166,7 +169,7 @@ public class MainController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
             alert.setHeaderText("Loading basketView.fxml.");
-            alert.setContentText("Couldn't load View1.fxml.");
+            alert.setContentText("Couldn't load basketView.fxml.");
             alert.showAndWait();
 
         }
@@ -176,4 +179,8 @@ public class MainController {
         mainController = controller;
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        storeOrderListMain = new StoreOrders();
+    }
 }

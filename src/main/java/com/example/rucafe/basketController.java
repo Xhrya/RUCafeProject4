@@ -3,6 +3,7 @@ package com.example.rucafe;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +14,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.*;
+
+import static com.example.rucafe.MainController.storeOrderListMain;
 
 public class basketController implements Initializable {
     private MainController mainController;
@@ -33,7 +36,12 @@ public class basketController implements Initializable {
     public basketController() {
     }
 
-    public void setMainController(MainController controller) {this.mainController = controller;}
+    public void setMainController(MainController controller) {
+        mainController = controller;
+        //currentOrderList= list;
+    }
+
+
     ArrayList<MenuItem> basket = new ArrayList<MenuItem>(); //don't need this can reference from Order class
 
 
@@ -44,6 +52,7 @@ public class basketController implements Initializable {
 
     public void importFile() throws FileNotFoundException {
         addCoffees();
+        addDonuts();
         basketList.setItems(orderedItems);
         CalculateCosts();
 
@@ -52,7 +61,7 @@ public class basketController implements Initializable {
     }
 
     @FXML
-    protected void onRemoveSelectedItem(Event e){
+    protected void onRemoveSelectedItem(ActionEvent actionEvent){
 //        String del = basketList.getSelectionModel().getSelectedItems().toString();
 //        System.out.println(del);
 //
@@ -135,6 +144,42 @@ public class basketController implements Initializable {
             //display on the view
             orderedItems.add(line.substring(0, '$'));
         }
+    }
+
+    private void addDonuts() throws FileNotFoundException {
+        //reads through each line of the file of coffee
+
+        Scanner fileScanner = new Scanner(new File("donutsFile.txt"));
+        while (fileScanner.hasNextLine()) {
+            String line = fileScanner.nextLine();
+            //Yeast Donuts Birthday Cake (1.0)$1.59
+            //Yeast Donuts Birthday Cake (1.0)$1.59
+
+            // donuts are being added in this format:
+            String donutT = line.substring(0, line.indexOf("Donuts")+6);
+
+            String donutF = line.substring(line.indexOf("Donuts")+7, line.indexOf("("));
+
+            String quantity = (line.substring(line.indexOf("(")+1, line.indexOf(")")));
+            double donutQuantity = Double.parseDouble(quantity);
+
+
+            //    public Donuts(String donutType, String donutFlavor, double quantity){
+            currentOrder.addDonut(new Donuts(donutT, donutF, donutQuantity));
+            //display on the view
+            orderedItems.add(line.substring(0, '$'));
+        }
+    }
+
+    @FXML
+    protected void onPlaceOrder(ActionEvent actionEvent)
+    {
+        //read in everything from here and create a new StoreOrder
+
+        //use storeOrderListMain and add the orders here to that list
+
+        storeOrderListMain.addOrder(currentOrder);
+
     }
 }
 
