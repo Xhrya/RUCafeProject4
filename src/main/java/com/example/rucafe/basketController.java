@@ -65,6 +65,8 @@ public class basketController implements Initializable {
      */
     public void importFile() throws FileNotFoundException {
         addCoffees();
+        addDonuts();
+
         basketList.setItems(orderedItems);
         CalculateCosts();
     }
@@ -104,7 +106,10 @@ public class basketController implements Initializable {
 
         //clears out the coffee file for a new order
         FileWriter clearWriter = new FileWriter("coffeeFile.txt", true);
+        FileWriter clearWriter1 = new FileWriter("donutsView.txt", true);
+
         clearWriter.write("");
+        clearWriter1.write("");
         clearWriter.close();
     }
 
@@ -188,6 +193,34 @@ public class basketController implements Initializable {
             orderedItems.add(line.substring(0, '$'));
         }
     }
+
+
+    private void addDonuts() throws FileNotFoundException {
+        //reads through each line of the file of coffee
+
+        Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
+        while (fileScanner.hasNextLine()) {
+            String line = fileScanner.nextLine();
+            //Yeast Donuts Birthday Cake (1.0)$1.59
+            //Yeast Donuts Birthday Cake (1.0)$1.59
+
+            // donuts are being added in this format:
+            String donutT = line.substring(0, line.indexOf("Donuts")+6);
+
+            String donutF = line.substring(line.indexOf("Donuts")+7, line.indexOf("("));
+
+            String quantity = (line.substring(line.indexOf("(")+1, line.indexOf(")")));
+            double donutQuantity = Double.parseDouble(quantity);
+
+            Donuts test = new Donuts(donutT, donutF, donutQuantity);
+            //    public Donuts(String donutType, String donutFlavor, double quantity){
+            currentOrder.addDonut(new Donuts(donutT, donutF, donutQuantity));
+
+            //display on the view
+            orderedItems.add(line.substring(0, '$'));
+        }
+    }
+
 
 
 
