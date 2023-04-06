@@ -19,7 +19,6 @@ public class basketController implements Initializable {
 
     private ObservableList<String> orderedItems = FXCollections.observableArrayList();
 
-    int itemNum=0;
     Order currentOrder = new Order();
     double subTotalCost = 0.0;
     @FXML
@@ -44,58 +43,32 @@ public class basketController implements Initializable {
 //    } --> what is this
 
     public void importFile() throws FileNotFoundException {
-        //reads through each line of the file of coffee
-        Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
-        while (fileScanner.hasNextLine()) {
-            String line = fileScanner.nextLine();
-
-//            //list of add ins
-//            String tempList = line.substring(line.indexOf('['), line.indexOf(']')+1);
-//            String tempArr[] = tempList.split(",");
-//            ArrayList addInList = new ArrayList<>();
-//            for(int i=0; i<tempArr.length; i++){
-//                if(tempArr[i].equals("SWEETCREAM")){
-//                    addInList.add(AddIns.SWEETCREAM);
-//                }
-//                if(tempArr[i].equals("FRENCHVANILLA")){
-//                    addInList.add(AddIns.FRENCHVANILLA);
-//                }
-//                if(tempArr[i].equals("IRISHCREAM")){
-//                    addInList.add(AddIns.IRISHCREAM);
-//                }
-//                if(tempArr[i].equals("CARAMEL")){
-//                    addInList.add(AddIns.CARAMEL);
-//                }
-//                if(tempArr[i].equals("MOCHA")){
-//                    addInList.add(AddIns.MOCHA);
-//                }
-//            }
-//            //adding the coffee to the order
-//
-//            currentOrder.addCoffee(new Coffee(line.substring(6, (line.indexOf('A'))+1), addInList,Double.parseDouble(line.substring(line.indexOf('$')))));
-//            //display on the view
-            orderedItems.add(line.substring(0, '$'));
-        }
+        addCoffees();
         basketList.setItems(orderedItems);
         CalculateCosts();
-        //adds to order
 
         //tmew i will fix this to calcuate costs, removeclick, + system testing
 
     }
 
+    @FXML
+    protected void onRemoveSelectedItem(Event e){
+//        String del = basketList.getSelectionModel().getSelectedItems().toString();
+//        System.out.println(del);
+//
+//        //find the item in the arr and delete
+//
+//        //basket.remove();
+//
+//        //have to recalculate subtotal after removing item
+//        CalculateCosts();
+    }
 
     @FXML
-    protected void onRemoveClick(Event e){
-        String del = basketList.getSelectionModel().getSelectedItems().toString();
+    protected void onPlaceOrder(Event e){
 
-        //find the item in the arr and delete
-
-        //basket.remove();
-
-        //have to recalculate subtotal after removing item
-        CalculateCosts();
     }
+
 
     protected void CalculateCosts(){
         subTotalCost = 0.0;
@@ -105,9 +78,10 @@ public class basketController implements Initializable {
         }
 
         //displaying the costs
-        subTotal.setText("" + subTotalCost);
-        totalTax.setText("" + subTotalCost*.06625);
-        totalCost.setText("" + subTotalCost*1.06625);
+
+        subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
+        totalTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
+        totalCost.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
     }
 
     @Override
@@ -115,6 +89,7 @@ public class basketController implements Initializable {
         try {
             importFile();
         } catch (FileNotFoundException e) {
+            //make a message that says no orders made or something
             throw new RuntimeException(e);
         }
 
@@ -127,6 +102,39 @@ public class basketController implements Initializable {
 //        }
 //        basketList.setItems(orderedItems);
 //        CalculateCosts();
+    }
+
+    private void addCoffees() throws FileNotFoundException {
+        //reads through each line of the file of coffee
+        Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
+        while (fileScanner.hasNextLine()) {
+            String line = fileScanner.nextLine();
+
+            //list of add ins
+            String tempList = line.substring(line.indexOf('[')+1, line.indexOf(']'));
+            String tempArr[] = tempList.split(",");
+            ArrayList addInList = new ArrayList<>();
+            for(int i=0; i<tempArr.length; i++){
+                if(tempArr[i].equals("sweetcream") || tempArr[i].equals(" sweetcream")){
+                    addInList.add(AddIns.SWEETCREAM);
+                }
+                if(tempArr[i].equals("frenchvanilla") || tempArr[i].equals(" frenchvanilla")){
+                    addInList.add(AddIns.FRENCHVANILLA);
+                }
+                if(tempArr[i].equals("irishcream") || tempArr[i].equals(" irishcream")){
+                    addInList.add(AddIns.IRISHCREAM);
+                }
+                if(tempArr[i].equals("caramel") || tempArr[i].equals(" caramel")){
+                    addInList.add(AddIns.CARAMEL);
+                }
+                if(tempArr[i].equals("mocha") || tempArr[i].equals(" mocha")){
+                    addInList.add(AddIns.MOCHA);
+                }
+            }
+            currentOrder.addCoffee(new Coffee(line.substring(8, (line.indexOf('A'))-1), addInList, Double.parseDouble(line.substring(line.indexOf('$')+1))));
+            //display on the view
+            orderedItems.add(line.substring(0, '$'));
+        }
     }
 }
 

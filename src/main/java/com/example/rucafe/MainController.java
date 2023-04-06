@@ -12,12 +12,13 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainController {
     private MainController mainController;
-
+    File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
     private  ArrayList<MenuItem> orderList = new ArrayList<>();
     private MenuItem basket;
 

@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="no more null pointer error for store orders">
-      <change afterPath="$PROJECT_DIR$/coffeeFile.txt" afterDir="false" />
+    <list default="true" id="35704d90-2e40-4b6c-af84-a68b18ab9cd0" name="Changes" comment="basket update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/AddIns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/AddIns.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/DonutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/DonutsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,15 +57,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/medha/Desktop/compsci stuff/CS213/Project2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/medha/Desktop/compsci stuff/CS213/RUCafeProject4&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/rucafe" />
@@ -190,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680665251463</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="basket update">
+      <created>1680760265656</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680760265656</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -207,7 +211,8 @@
     <MESSAGE value="Donuts page is completely working!" />
     <MESSAGE value="order and storeOrder and DonutController +etc" />
     <MESSAGE value="no more null pointer error for store orders" />
-    <option name="LAST_COMMIT_MESSAGE" value="no more null pointer error for store orders" />
+    <MESSAGE value="basket update" />
+    <option name="LAST_COMMIT_MESSAGE" value="basket update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RUCafeProject4$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1680616012431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

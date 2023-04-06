@@ -5,7 +5,6 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ public class CoffeeController {
     private int quantity = 1;
 //    private double currentPrice = 1.89;
     ArrayList addIns = new ArrayList();
-    File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
 
     public void setMainController(MainController controller) {
         mainController = controller;
