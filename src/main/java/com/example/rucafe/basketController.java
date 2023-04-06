@@ -198,10 +198,12 @@ public class basketController implements Initializable {
     private void addDonuts() throws FileNotFoundException {
         //reads through each line of the file of coffee
 
-        Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
+        Scanner fileScanner = new Scanner(new File("donutsFile.txt"));
+        if(!fileScanner.hasNextLine()){
+            return;
+        }
         while (fileScanner.hasNextLine()) {
             String line = fileScanner.nextLine();
-            //Yeast Donuts Birthday Cake (1.0)$1.59
             //Yeast Donuts Birthday Cake (1.0)$1.59
 
             // donuts are being added in this format:
@@ -213,11 +215,10 @@ public class basketController implements Initializable {
             double donutQuantity = Double.parseDouble(quantity);
 
             Donuts test = new Donuts(donutT, donutF, donutQuantity);
-            //    public Donuts(String donutType, String donutFlavor, double quantity){
-            currentOrder.addDonut(new Donuts(donutT, donutF, donutQuantity));
+            currentOrder.addDonut(test);
 
             //display on the view
-            orderedItems.add(line.substring(0, '$'));
+            orderedItems.add(line.substring(0, line.indexOf('$')));
         }
     }
 

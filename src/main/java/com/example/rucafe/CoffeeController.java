@@ -193,7 +193,7 @@ public class CoffeeController {
 
             //EXPORTS TO A FILE
             myWriter.write(newCoffee.toString() + "$" + newCoffee.itemPrice() + "\n");
-            System.out.println(newCoffee.toString() + "$" + newCoffee.itemPrice() + "\n");
+//            System.out.println(newCoffee.toString() + "$" + newCoffee.itemPrice() + "\n");
         }
         myWriter.close();
     }

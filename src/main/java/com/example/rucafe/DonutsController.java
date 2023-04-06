@@ -193,7 +193,6 @@ public class DonutsController implements Initializable{
 
                 //EXPORTS TO A FILE
                 myWriter.write(donutList.get(i).toString() + "$" + donutList.get(i).itemPrice() + "\n");
-                System.out.println(donutList.get(i).toString() + "$" + donutList.get(i).itemPrice() + "\n");
             }
             myWriter.close();
 
