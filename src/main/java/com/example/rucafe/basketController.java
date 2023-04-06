@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
+import static com.example.rucafe.MainController.storeOrderListMain;
+
 public class basketController implements Initializable {
     private MainController mainController;
 
@@ -65,9 +67,6 @@ public class basketController implements Initializable {
         addCoffees();
         basketList.setItems(orderedItems);
         CalculateCosts();
-
-        //tmew i will fix this to calcuate costs, + system testing
-
     }
 
     /**
@@ -100,7 +99,8 @@ public class basketController implements Initializable {
      */
     @FXML
     protected void onPlaceOrder(ActionEvent e) throws IOException {
-        //
+        //puts the order into the ARRAYLIST
+        storeOrderListMain.addOrder(currentOrder);
 
         //clears out the coffee file for a new order
         FileWriter clearWriter = new FileWriter("coffeeFile.txt", true);

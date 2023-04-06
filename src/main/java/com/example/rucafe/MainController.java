@@ -29,9 +29,6 @@ public class MainController implements Initializable {
     File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
     protected static StoreOrders storeOrderListMain;
 
-
-
-
     //when one button or another is clicked, we will
     //open either the food or drinks window
 

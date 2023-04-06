@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="341b24e6-3424-45b8-b2b4-441eb00fc4f1" name="Changes" comment="">
+    <list default="true" id="341b24e6-3424-45b8-b2b4-441eb00fc4f1" name="Changes" comment="adding comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffeeFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donutsFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/donutsFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/AddIns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/AddIns.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Coffee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/CoffeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Donuts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Donuts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/DonutsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/DonutsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/MenuItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/basketController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680811788682</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="adding comments">
+      <created>1680816197173</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680816197173</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -253,7 +251,8 @@
     <MESSAGE value="coffee button fixed" />
     <MESSAGE value="basket removeAction" />
     <MESSAGE value="created a storeOrderList and need to get these store orders to show up in the StoreOrderController" />
-    <option name="LAST_COMMIT_MESSAGE" value="created a storeOrderList and need to get these store orders to show up in the StoreOrderController" />
+    <MESSAGE value="adding comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding comments" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RUCafeProject4$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1680616012431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

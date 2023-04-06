@@ -120,15 +120,12 @@ public class Order {
     /**
      * Converts order to string
      */
-    public String toString()
-    {
-        String orderString = "Order #" + this.orderNumber + " Total: $" + this.totalWithTax() + "(" + this.orderNumber + ")";
+    public String toString() {
+        String orderString = "Order #" + this.orderNumber + " Total: $" + this.totalWithTax() + "(" + this.orderNumber + ")\n";
         //display each order from ArrayList as a new line
-        for(int i =0; i<orderList.size(); i++)
-        {
+        for(int i =0; i<orderList.size(); i++) {
             orderString += orderList.get(i).toString() + "\n";
         }
-
         return orderString;
     }
 

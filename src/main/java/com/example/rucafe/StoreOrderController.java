@@ -29,6 +29,7 @@ import static com.example.rucafe.MainController.storeOrderListMain;
 public class StoreOrderController implements Initializable {
     private MainController mainController;
 
+    private ObservableList<String> observeOrderList = FXCollections.observableArrayList();
     @FXML
     protected TextField subTotal;
 
@@ -102,12 +103,18 @@ public class StoreOrderController implements Initializable {
             alert.setHeaderText("Order Cancellation Failed.");
             alert.setContentText("There are no orders in the store.");
             alert.showAndWait();
-        }
-        else {
+        } else {
             int index = listOfOrders.getSelectionModel().getSelectedIndex();
 
             //remove at the index
             //listOfOrders.remove(index);
+            observeOrderList.remove(index);
+            listOfOrders.setItems(observeOrderList);
+
+
+            //recalculate after removing item!!!
+
+
         }
 
 
@@ -165,20 +172,42 @@ public class StoreOrderController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(storeOrderListMain != null)
-        {
-            orderChooser.getItems().clear();
-            orderNumbersTotal.clear();
-            for (int i = 0; i < storeOrderListMain.getNumberOrders(); i++) {
-                String orderNumber = String.valueOf(storeOrderListMain.getListOfOrders().get(i).getOrderNumber());
-                orderNumbersTotal.add(orderNumber);
+        if(storeOrderListMain != null){
+            for(int i=0; i<storeOrderListMain.getNumberOrders(); i++){
+                observeOrderList.add(storeOrderListMain.getOrder(i).toString());
             }
-            orderChooser.setItems(orderNumbersTotal);
-            orderChooser.getSelectionModel().select(0);
+            listOfOrders.setItems(observeOrderList);
         }
-        else {
 
-        }
+
+
+//        if(storeOrderListMain != null)
+//        {
+//            orderChooser.getItems().clear();
+//            orderNumbersTotal.clear();
+//            for (int i = 0; i < storeOrderListMain.getNumberOrders(); i++) {
+//                String orderNumber = String.valueOf(storeOrderListMain.getListOfOrders().get(i).getOrderNumber());
+//                orderNumbersTotal.add(orderNumber);
+//            }
+//            orderChooser.setItems(orderNumbersTotal);
+//            orderChooser.getSelectionModel().select(0);
+//        }
+//        else {
+//            return;
+//        }
+    }
+
+    public void calculateFinalPrices(){
+
+
+        //goes through the array and based on the item's type, adds that cost
+//        for(int i =0; i<currentOrder.getOrderList().size(); i++){
+//            subTotalCost = subTotalCost + currentOrder.getOrderList().get(i).itemPrice();
+//        }
+//        //displaying the costs
+//        subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
+//        totalTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
+//        totalCost.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
     }
 
 }
