@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
@@ -48,6 +50,7 @@ public class DonutsController implements Initializable {
     @FXML
     ImageView donutImage;
 
+    File coffeeFile = new File("RUCafeProject4/src/main/donutsFile.txt");
 
 
     //create an array list of donuts that stores the info about donut
@@ -174,10 +177,12 @@ public class DonutsController implements Initializable {
 
 
     @FXML
-    protected void onAddToBasket()
-    {
+    protected void onAddToBasket() throws IOException {
         //add to some sort of list of donuts to sent to basket
         //Donuts(donutsType.getItems());
+
+        FileWriter myWriter = new FileWriter("donutsFile.txt");
+
 
         if(donutList.isEmpty())
         {
@@ -195,22 +200,28 @@ public class DonutsController implements Initializable {
             alert.setContentText("No donuts selected.");
             alert.showAndWait();
         }
-        else{
-            //just need to import this list?
+//        else{
+//            for(int i=0; i< donutList.size(); i++){
+//                Donuts newDonut = new Donuts(size, addIns, price);
+//
+//                //EXPORTS TO A FILE
+//                myWriter.writer(newDonut.toString() + "$" + newDonut.itemPrice() + "\n");
+//                System.out.println(newDonut.toString() + "$" + newDonut.itemPrice() + "\n");
+//            }
+//            myWriter.close();
+//            donutsPriceTotal.setText("$" + displayTotalPrice());
 
 
-            for(int i=0; i <donutList.size(); i++)
-            {
-//                basket.addDonuts(currentOrderList.get(i));
 
-
-
-             //   currentDonut.add(donutList.get(i));
-               // donutList.add(currentDonutOrder);
-            }
-
-            donutsPriceTotal.setText("$" + displayTotalPrice());
-
+//            for(int i=0; i <donutList.size(); i++)
+//            {
+////                basket.addDonuts(currentOrderList.get(i));
+//
+//
+//
+//             //   currentDonut.add(donutList.get(i));
+//               // donutList.add(currentDonutOrder);
+//            }
 
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -226,33 +237,8 @@ public class DonutsController implements Initializable {
 
 
 
-    @FXML
-    protected void onHomeButtonClick()
-    {
-        Stage mainView = new Stage();
-        VBox root2;
-        try
-        {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("homeView.fxml"));
-            root2 = (VBox) loader.load();
-            Scene scene = new Scene(root2, 550, 700);
-            mainView.setScene(scene);
-            mainView.show();
-
-        }catch (IOException e)
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERROR");
-            alert.setHeaderText("Loading View1.fxml.");
-            alert.setContentText("Couldn't load View1.fxml.");
-            alert.showAndWait();
-
-        }
-
-    }
 
 
 
-}
+
 

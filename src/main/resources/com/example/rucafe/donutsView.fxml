@@ -90,7 +90,6 @@
          <items>
             <HBox prefHeight="37.0" prefWidth="498.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
                   <Button mnemonicParsing="false" text="My Order" />
                   <Button mnemonicParsing="false" text="Store Orders" />
                </children>
