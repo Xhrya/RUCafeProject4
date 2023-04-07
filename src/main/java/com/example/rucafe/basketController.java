@@ -26,6 +26,12 @@ import java.util.*;
 import static com.example.rucafe.MainController.storeOrderListMain;
 
 public class basketController implements Initializable {
+    Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
+    Scanner fileScanner2 = new Scanner(new File("donutsFile.txt"));
+
+    File donutFile = new File("RUCafeProject4/src/main/donutsFile.txt");
+    File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
+
     private MainController mainController;
 
     private ObservableList<String> orderedItems = FXCollections.observableArrayList();
@@ -42,9 +48,9 @@ public class basketController implements Initializable {
     ListView basketList;
 
     /**
-     * delcaring basket controller
+     * declaring basket controller
      */
-    public basketController() {
+    public basketController() throws FileNotFoundException {
     }
 
     /**
@@ -55,10 +61,6 @@ public class basketController implements Initializable {
     ArrayList<MenuItem> basket = new ArrayList<MenuItem>(); //don't need this can reference from Order class
 
 
-//    public void addToBasket(){
-//        basketList.getItems().addAll(basket);
-//        CalculateCosts();
-//    } --> what is this
 
     /**
      * reads information about menuitems from file to put into basket
@@ -105,17 +107,29 @@ public class basketController implements Initializable {
         currentOrder.setTotalPrice(CalculateCosts());
         storeOrderListMain.addOrder(currentOrder);
 
+
         //clears out the coffee file for a new order
-        FileWriter clearWriter = new FileWriter("coffeeFile.txt", true);
-        FileWriter clearWriter1 = new FileWriter("donutsView.txt", true);
+        FileWriter clearWriter = new FileWriter("coffeeFile.txt", false);
+        FileWriter clearWriter1 = new FileWriter("donutsFile.txt", false);
 
         clearWriter.write("");
         clearWriter1.write("");
-
         clearWriter.flush();
         clearWriter1.flush();
 
+
+        basketList.getSelectionModel().clearSelection();
+
+
+        donutFile.delete();
+        coffeeFile.delete();
+
         clearWriter.close();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Order Placed!");
+        alert.setContentText("The order has been placed and can be viewed in store orders!");
+        alert.showAndWait();
     }
 
 
@@ -147,7 +161,6 @@ public class basketController implements Initializable {
         try {
             importFile();
         } catch (FileNotFoundException e) {
-            //make a message that says no orders made or something
             throw new RuntimeException(e);
         }
 
@@ -157,9 +170,6 @@ public class basketController implements Initializable {
      * Reads from coffee file to create basket items
      */
     private void addCoffees() throws FileNotFoundException {
-
-        //reads through each line of the file of coffee
-        Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
         if(!fileScanner.hasNextLine()){
             return;
         }
@@ -200,15 +210,12 @@ public class basketController implements Initializable {
     private void addDonuts() throws FileNotFoundException {
         //reads through each line of the file of coffee
 
-        Scanner fileScanner = new Scanner(new File("donutsFile.txt"));
-        if(!fileScanner.hasNextLine()){
+        if(!fileScanner2.hasNextLine()){
             return;
         }
-        while (fileScanner.hasNextLine()) {
-            String line = fileScanner.nextLine();
-            //Yeast Donuts Birthday Cake (1.0)$1.59
+        while (fileScanner2.hasNextLine()) {
+            String line = fileScanner2.nextLine();
 
-            // donuts are being added in this format:
             String donutT = line.substring(0, line.indexOf("Donuts")+6);
 
             String donutF = line.substring(line.indexOf("Donuts")+7, line.indexOf("("));

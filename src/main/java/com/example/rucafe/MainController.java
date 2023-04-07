@@ -28,12 +28,6 @@ public class MainController implements Initializable {
     private MainController mainController;
     protected static StoreOrders storeOrderListMain;
 
-    //when one button or another is clicked, we will
-    //open either the food or drinks window
-
-
-    //here, I will be storing myCurrentOrder and storeOrder for ease of access
-
 
     @FXML
     protected void onDonutsClickButton()

@@ -13,22 +13,29 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rucafe.DonutsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: light-pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rucafe.DonutsController">
     <left>
         <VBox alignment="CENTER" prefHeight="296.0" prefWidth="150.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets left="30.0" />
             </BorderPane.margin>
             <children>
-            <ComboBox fx:id="chooseDonutsType" onAction="#onDonutTypeComboSelected" prefWidth="150.0" promptText="Select Donut" />
+            <ComboBox fx:id="chooseDonutsType" onAction="#onDonutTypeComboSelected" prefWidth="150.0" promptText="Select Donut" style="-fx-background-color: pink;">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></ComboBox>
             <ListView fx:id="chooseDonutFlavors" prefHeight="150.0" prefWidth="150.0" />
             <Label prefHeight="17.0" prefWidth="150.0" text="Enter Qualtity:" />
             <TextField fx:id="quantity" />
             <HBox prefHeight="37.0" prefWidth="498.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onSelectDonut" text="Select" />
+                  <Button mnemonicParsing="false" onAction="#onSelectDonut" style="-fx-background-color: pink;" text="Select">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
             <HBox prefHeight="53.0" prefWidth="150.0">
@@ -40,9 +47,9 @@
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddToBasket" text="Add toBasket">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddToBasket" style="-fx-background-color: pink;" text="Add toBasket">
                <VBox.margin>
-                  <Insets bottom="5.0" />
+                  <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
             <HBox prefHeight="35.0" prefWidth="165.0">
@@ -59,7 +66,7 @@
         </VBox>
     </left>
     <right>
-        <VBox alignment="CENTER_LEFT" prefHeight="317.0" prefWidth="295.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER_LEFT" prefHeight="319.0" prefWidth="295.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets left="25.0" />
             </BorderPane.margin>
@@ -67,7 +74,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                       <Label prefHeight="17.0" prefWidth="41.0" />
-                  <Button alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="184.0" prefWidth="199.0" text="Donut">
+                  <Button alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="184.0" prefWidth="199.0" style="-fx-background-image: white;" text="Donut">
                      <graphic>
                         <ImageView fx:id="donutImage" fitHeight="150.0" fitWidth="262.0" focusTraversable="true" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
@@ -86,19 +93,16 @@
         </VBox>
     </right>
    <bottom>
-      <SplitPane orientation="VERTICAL" prefHeight="39.0" prefWidth="500.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-         <items>
-            <HBox prefHeight="37.0" prefWidth="498.0">
-               <children>
-                  <Button mnemonicParsing="false" text="My Order" />
-                  <Button mnemonicParsing="false" text="Store Orders" />
-               </children>
-            </HBox>
-         </items>
-      </SplitPane>
+      <SplitPane orientation="VERTICAL" prefHeight="0.0" prefWidth="500.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUCafe" wrappingWidth="42.89111328125" BorderPane.alignment="CENTER" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RU Cafe" textAlignment="CENTER" wrappingWidth="496.89111328125" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="19.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="7.0" top="7.0" />
+         </BorderPane.margin></Text>
    </top>
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />

@@ -34,11 +34,11 @@
          <Font size="40.0" />
       </font>
    </Text>
-   <BorderPane prefHeight="200.0" prefWidth="200.0">
+   <BorderPane prefHeight="394.0" prefWidth="486.0">
       <top>
          <VBox alignment="CENTER" prefHeight="300.0" prefWidth="441.0" BorderPane.alignment="CENTER">
             <padding>
-               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
                <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onCoffeeClickButton" text="Drinks">
@@ -78,8 +78,22 @@
    <ButtonBar prefHeight="40.0" prefWidth="200.0">
      <buttons>
          <Button mnemonicParsing="false" onAction="#OnHomeButtonClick" prefHeight="26.0" prefWidth="135.0" text="Home" />
-         <Button mnemonicParsing="false" onAction="#onStoreOrdersClick" text="Store Orders" />
-         <Button mnemonicParsing="false" onAction="#onMyOrderClick" prefHeight="26.0" prefWidth="136.0" text="My Order" />
+         <Button mnemonicParsing="false" onAction="#onStoreOrdersClick" text="Store Orders">
+            <graphic>
+               <ImageView fitHeight="29.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@orders.jpeg" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+         <Button mnemonicParsing="false" onAction="#onMyOrderClick" prefHeight="26.0" prefWidth="136.0" text="My Order">
+            <graphic>
+               <ImageView fitHeight="40.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@orders.jpeg" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
      </buttons>
    </ButtonBar>
 

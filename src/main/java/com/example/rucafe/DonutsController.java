@@ -6,6 +6,7 @@ package com.example.rucafe;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -68,7 +69,6 @@ public class DonutsController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         //public so this initialize method can be used by other methods
 
-
         //use observable lists here to set types of donuts
 
         //this particular observable list is to set and choose type of donut
@@ -84,14 +84,8 @@ public class DonutsController implements Initializable{
         //chooseDonutFlavors.getSelectionModel().select(0);
 
         ObservableList<String> cakeDonutFlavors = FXCollections.observableArrayList("Chocolate", "Vanilla", "Birthday Cake");
-//        chooseDonutFlavors.getItems().clear();
-//        chooseDonutFlavors.setItems(cakeDonutFlavors);
 
         ObservableList<String> donutHolesFlavors = FXCollections.observableArrayList("Chocolate", "Glazed", "Vanilla");
-//        chooseDonutFlavors.getItems().clear();
-//        chooseDonutFlavors.setItems(donutHolesFlavors);
-
-
     }
 
     /**
@@ -124,9 +118,7 @@ public class DonutsController implements Initializable{
      */
     @FXML
     protected void onSelectDonut() {
-        //check to make sure donut type selected
-        //check to make sure donut flavor selected
-        //check to make sure quantity is greater than or equal to 1
+
 
         String donutType = chooseDonutsType.getSelectionModel().getSelectedItem();
         if (donutType.equals(null)) {
@@ -179,7 +171,6 @@ public class DonutsController implements Initializable{
     @FXML
     protected void onAddToBasket() throws IOException {
 
-        File donutFile = new File("RUCafeProject4/src/main/donutsFile.txt");
 
         if (donutList.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -191,14 +182,14 @@ public class DonutsController implements Initializable{
 
 
             donutsPriceTotal.setText("$" + displayTotalPrice());
-            FileWriter myWriter = new FileWriter("donutsFile.txt", true);
+            FileWriter myDonutWriter = new FileWriter("donutsFile.txt", true);
 
             for (int i = 0; i < donutList.size(); i++) {
 
                 //EXPORTS TO A FILE
-                myWriter.write(donutList.get(i).toString() + "$" + donutList.get(i).itemPrice() + "\n");
+                myDonutWriter.write(donutList.get(i).toString() + "$" + donutList.get(i).itemPrice() + "\n");
             }
-            myWriter.close();
+            myDonutWriter.close();
 
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -209,7 +200,6 @@ public class DonutsController implements Initializable{
 
         }
     }
-
 
 }
 

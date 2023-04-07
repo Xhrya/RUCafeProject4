@@ -12,3 +12,7 @@ COFFEE: Tall ADD-INS:[frenchvanilla]
 COFFEE: Grande ADD-INS:[irishcream]
 COFFEE: Grande ADD-INS:[irishcream]
 Yeast Donuts Chocolate  (1.0)
+Order #0 Total: $8.07(0)
+COFFEE: Venti ADD-INS:[caramel]
+COFFEE: Tall ADD-INS:[frenchvanilla]
+Yeast Donuts Chocolate  (1.0)

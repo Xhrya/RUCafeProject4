@@ -123,7 +123,6 @@ public class StoreOrderController implements Initializable {
             storeOrderListMain.getListOfOrders().remove(index);
             listOfOrders.setItems(observeOrderList);
 
-            //recalculate after removing item!!!
             calculateFinalPrices();
         }
     }
@@ -143,15 +142,19 @@ public class StoreOrderController implements Initializable {
             alert.showAndWait();
         }
         else {
-//            File coffeeFile = new File("RUCafeProject4/src/main/savedOrder.txt");
+            File coffeeFile = new File("RUCafeProject4/src/main/savedOrder.txt");
             FileWriter myWriter = new FileWriter("savedOrder.txt", true);
             for(int i =0; i<storeOrderListMain.getListOfOrders().size(); i++){
                 myWriter.write(storeOrderListMain.getListOfOrders().get(i).toString());
             }
             myWriter.close();
 
-        }
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Exported and Saved!");
+            alert.setContentText("The file has been saved and exported to 'savedOrder' txt file");
+            alert.showAndWait();
 
+        }
         }
 
 
@@ -169,20 +172,6 @@ public class StoreOrderController implements Initializable {
             listOfOrders.setItems(observeOrderList);
             calculateFinalPrices();
         }
-//        if(storeOrderListMain != null)
-//        {
-//            orderChooser.getItems().clear();
-//            orderNumbersTotal.clear();
-//            for (int i = 0; i < storeOrderListMain.getNumberOrders(); i++) {
-//                String orderNumber = String.valueOf(storeOrderListMain.getListOfOrders().get(i).getOrderNumber());
-//                orderNumbersTotal.add(orderNumber);
-//            }
-//            orderChooser.setItems(orderNumbersTotal);
-//            orderChooser.getSelectionModel().select(0);
-//        }
-//        else {
-//            return;
-//        }
     }
 
     /**

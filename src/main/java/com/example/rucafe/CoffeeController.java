@@ -129,9 +129,7 @@ public class CoffeeController {
      */
     @FXML
     protected void onMochaSelected(Event e){
-//        addIns.add(AddIns.MOCHA);
-//        currentPrice = currentPrice + 0.30;
-//        priceTotal.setText("$" + String.format("%.2f",(currentPrice * quantity)));
+//
         displayPrice();
     }
 
@@ -162,7 +160,6 @@ public class CoffeeController {
      */
     @FXML
     protected void onAddToBasket(Event e) throws IOException {
-        File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
 
         FileWriter myWriter = new FileWriter("coffeeFile.txt", true);
         double price = 0.0;
