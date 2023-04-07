@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     private MainController mainController;
-    File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
     protected static StoreOrders storeOrderListMain;
 
     //when one button or another is clicked, we will

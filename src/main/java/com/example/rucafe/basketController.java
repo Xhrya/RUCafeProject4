@@ -162,6 +162,8 @@ public class basketController implements Initializable {
      * Reads from coffee file to create basket items
      */
     private void addCoffees() throws FileNotFoundException {
+        File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
+
         //reads through each line of the file of coffee
         Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));
         if(!fileScanner.hasNextLine()){

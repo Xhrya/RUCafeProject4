@@ -19,10 +19,13 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import static com.example.rucafe.MainController.storeOrderListMain;
 
@@ -69,7 +72,8 @@ public class StoreOrderController implements Initializable {
     @FXML
     protected void onChooseOrderNumber(ActionEvent actionEvent)
     {
-        int order = Integer.parseInt((String)orderChooser.getSelectionModel().getSelectedItem());
+
+        int index = listOfOrders.getSelectionModel().getSelectedIndex();
 
         listOfOrders.getItems().clear();
         //we want to call this entire order form storeOrders
@@ -80,7 +84,7 @@ public class StoreOrderController implements Initializable {
 //               // listOfOrders.add(thisOrder.getMenuString(i)); //get this to show up in the listview
 //
 //                for(int i=0; i<storeOrderListMain.getOrder(order).getOrderListSize(); i++){
-                    observeOrderList.add(storeOrderListMain.getOrder(order).toString());
+                    observeOrderList.add(storeOrderListMain.getOrder(index).toString());
 //                }
                 listOfOrders.setItems(observeOrderList);
                 //subTotal.setText("$" + calculateFinalPrices());
@@ -90,7 +94,7 @@ public class StoreOrderController implements Initializable {
 
         //listOfOrders.setItems(thisOrder);
 
-        subTotal.setText("$" + storeOrderListMain.getOrder(order).totalWithTax());
+        subTotal.setText("$" + storeOrderListMain.getOrder(index).totalWithTax());
 
     }
 
@@ -130,8 +134,7 @@ public class StoreOrderController implements Initializable {
      * @param event is under the case this order is selected
      */
     @FXML
-    protected void onSaveAndExport(ActionEvent event)
-    {
+    protected void onSaveAndExport(ActionEvent event) throws IOException {
         if(listOfOrders.equals(null))
         {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -141,33 +144,23 @@ public class StoreOrderController implements Initializable {
             alert.showAndWait();
         }
         else {
-            FileChooser fileChoose = new FileChooser();
 
-            //save the data onto a new file with a new stage
-            fileChoose.setTitle("Save and Export your order to a text file");
-            fileChoose.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("Text Files", "*.txt")
-                    ,new FileChooser.ExtensionFilter("HTML Files", "*.htm")
-            ); //extension filter to filter out what files are shown in Filechoose
+          //  File coffeeFile = new File("RUCafeProject4/src/main/savedOrder.txt");
+            FileWriter myWriter = new FileWriter("ExportFile.txt", true);
 
-            Stage stage = new Stage();
-            File saveHere = fileChoose.showSaveDialog(stage);
-            Alert alert = new Alert(Alert.AlertType.WARNING);
 
-            if(saveHere ==null)
-            {
-                alert.setTitle("Warning!!");
-                alert.setHeaderText("Error");
-                alert.setContentText("No file was chosen to be exported.");
+            for(int i =0; i<storeOrderListMain.getListOfOrders().size(); i++){
+                myWriter.write(storeOrderListMain.getListOfOrders().get(i).toString());
             }
-            else {
-                alert.setTitle("Confirmation");
-                alert.setHeaderText("Saved and Exported");
-                alert.setContentText("The orders have been saved successfully.");
-            }
-            alert.showAndWait();
+            myWriter.close();
+
         }
-    }
+
+
+        }
+
+
+
 
 
     /**

@@ -137,12 +137,27 @@ public class Order {
      */
     public double salesTax() //6.625% and dollars rounded to 2 decimal points
     {
-        double salesTax =0;
-        //get the sales tax
-      //  salesTax = NJ_TAX * menuItems.itemPrice();
+
+        double subTotalCost = 0;
+        for(int i =0; i<orderList.size(); i++){
+            subTotalCost = subTotalCost + orderList.get(i).itemPrice();
+        }
+
+        double salesTax =NJ_TAX * totalWithoutTax();
         //add to total
+
         salesTax= Double.parseDouble(String.format("%.2f",salesTax));
         return salesTax;
+    }
+
+
+    public double totalWithoutTax()
+    {
+        double subTotalCost = 0;
+        for(int i =0; i<orderList.size(); i++){
+            subTotalCost = subTotalCost + orderList.get(i).itemPrice();
+        }
+        return subTotalCost;
     }
 
 
@@ -155,6 +170,7 @@ public class Order {
         //get the sales tax
      //   totalWithTax = salesTax() + orderList.itemPrice();
         //add to total
+        totalWithTax = totalWithoutTax() + salesTax();
         totalWithTax= Double.parseDouble(String.format("%.2f",totalWithTax));
 
         return totalWithTax;
