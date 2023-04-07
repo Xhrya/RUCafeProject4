@@ -9,6 +9,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -161,6 +162,8 @@ public class CoffeeController {
      */
     @FXML
     protected void onAddToBasket(Event e) throws IOException {
+        File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
+
         FileWriter myWriter = new FileWriter("coffeeFile.txt", true);
         double price = 0.0;
         String size = cupSize.getSelectedToggle().toString();
@@ -196,6 +199,13 @@ public class CoffeeController {
 //            System.out.println(newCoffee.toString() + "$" + newCoffee.itemPrice() + "\n");
         }
         myWriter.close();
+
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation!!");
+        alert.setHeaderText("Add to Basket!");
+        alert.setContentText("Adding Coffee to Basket Confirmed!");
+        alert.showAndWait();
     }
 
     /**

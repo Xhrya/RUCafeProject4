@@ -111,6 +111,10 @@ public class basketController implements Initializable {
 
         clearWriter.write("");
         clearWriter1.write("");
+
+        clearWriter.flush();
+        clearWriter1.flush();
+
         clearWriter.close();
     }
 
@@ -147,22 +151,12 @@ public class basketController implements Initializable {
             throw new RuntimeException(e);
         }
 
-//        basketList.getItems().clear();
-//        Order thisorder = new Order(); //do I need this?
-//        //iterate through orderList
-//        for(int i =0; i < thisorder.getOrderListSize(); i++) //how am I supposed to access this list?
-//        {
-//            orderedItems.add(thisorder.menuItemAsString(i));
-//        }
-//        basketList.setItems(orderedItems);
-//        CalculateCosts();
     }
 
     /**
      * Reads from coffee file to create basket items
      */
     private void addCoffees() throws FileNotFoundException {
-        File coffeeFile = new File("RUCafeProject4/src/main/coffeeFile.txt");
 
         //reads through each line of the file of coffee
         Scanner fileScanner = new Scanner(new File("coffeeFile.txt"));

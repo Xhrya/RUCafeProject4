@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -178,6 +179,8 @@ public class DonutsController implements Initializable{
     @FXML
     protected void onAddToBasket() throws IOException {
 
+        File donutFile = new File("RUCafeProject4/src/main/donutsFile.txt");
+
         if (donutList.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning!!");
@@ -186,8 +189,9 @@ public class DonutsController implements Initializable{
             alert.showAndWait();
         } else {
 
+
             donutsPriceTotal.setText("$" + displayTotalPrice());
-            FileWriter myWriter = new FileWriter("donutsFile.txt");
+            FileWriter myWriter = new FileWriter("donutsFile.txt", true);
 
             for (int i = 0; i < donutList.size(); i++) {
 
