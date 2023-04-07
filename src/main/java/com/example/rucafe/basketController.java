@@ -101,7 +101,8 @@ public class basketController implements Initializable {
      */
     @FXML
     protected void onPlaceOrder(ActionEvent e) throws IOException {
-        //puts the order into the ARRAYLIST
+        //puts the order into the
+        currentOrder.setTotalPrice(CalculateCosts());
         storeOrderListMain.addOrder(currentOrder);
 
         //clears out the coffee file for a new order
@@ -117,7 +118,7 @@ public class basketController implements Initializable {
     /**
      * Calculates the basket's costs
      */
-    protected void CalculateCosts(){
+    protected double CalculateCosts(){
         subTotalCost = 0.0;
 
         //goes through the array and based on the item's type, adds that cost
@@ -128,6 +129,8 @@ public class basketController implements Initializable {
         subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
         totalTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
         totalCost.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
+
+        return(Double.parseDouble(String.format("%.2f",(subTotalCost*1.06625))));
     }
 
     /**

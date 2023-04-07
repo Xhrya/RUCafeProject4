@@ -3,3 +3,6 @@ COFFEE: Grande ADD-INS:[irishcream]$2.9899999999999998
 COFFEE: Tall ADD-INS:[frenchvanilla]$2.59
 COFFEE: Short ADD-INS:[frenchvanilla, irishcream]$2.4899999999999998
 COFFEE: Grande ADD-INS:[frenchvanilla, irishcream, sweetcream, frenchvanilla, irishcream]$3.5899999999999994
+COFFEE: Tall ADD-INS:[frenchvanilla]$2.59
+COFFEE: Tall ADD-INS:[frenchvanilla]$2.59
+COFFEE: Tall ADD-INS:[frenchvanilla]$2.59

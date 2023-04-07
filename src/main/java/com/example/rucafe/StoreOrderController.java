@@ -121,6 +121,7 @@ public class StoreOrderController implements Initializable {
             listOfOrders.setItems(observeOrderList);
 
             //recalculate after removing item!!!
+            calculateFinalPrices();
         }
     }
 
@@ -181,7 +182,7 @@ public class StoreOrderController implements Initializable {
                 observeOrderList.add(storeOrderListMain.getOrder(i).toString());
             }
             listOfOrders.setItems(observeOrderList);
-          // subTotal.setText("$" + calculateFinalPrices());
+            calculateFinalPrices();
         }
 
 
@@ -206,12 +207,12 @@ public class StoreOrderController implements Initializable {
         double subTotalCost = 0.0;
       //  goes through the array and based on the item's type, adds that cost
         for(int i =0; i<storeOrderListMain.getListOfOrders().size(); i++){
-            subTotalCost = subTotalCost + storeOrderListMain.getListOfOrders().get(i);
+            subTotalCost = subTotalCost + storeOrderListMain.getListOfOrders().get(i).getTotalPrice();
         }
         //displaying the costs
-        subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
-        salesTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
-        total.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
+        subTotal.setText("$" + String.format("%.2f",(subTotalCost/1.06625)));
+        salesTax.setText("$" + String.format("%.2f",(subTotalCost-(subTotalCost/1.06625))));
+        total.setText("$" + String.format("%.2f",subTotalCost));
     }
 
 }

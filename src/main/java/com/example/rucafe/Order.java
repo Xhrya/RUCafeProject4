@@ -15,7 +15,7 @@ public class Order {
     private int orderNumber;
     private ArrayList<MenuItem> orderList;
 
-
+    private double orderPrice;
     private final double NJ_TAX = 0.06625;
     //what's the point of this being an ArrayList?
     //it's the list of all the items chosen to odder(the different donuts and etc)
@@ -29,6 +29,7 @@ public class Order {
     {
         orderNumber =1;
         orderList= new ArrayList<MenuItem>();
+        this.orderPrice = 0.0;
     }
 
 
@@ -159,6 +160,13 @@ public class Order {
         return totalWithTax;
     }
 
+    public void setTotalPrice(double price){
+        this.orderPrice = price;
+    }
+
+    public double getTotalPrice(){
+        return this.orderPrice;
+    }
 
 
 
