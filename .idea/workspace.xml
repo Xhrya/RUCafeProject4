@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="341b24e6-3424-45b8-b2b4-441eb00fc4f1" name="Changes" comment="adding comments">
-      <change afterPath="$PROJECT_DIR$/donutsView.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/DonutPrices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffeeFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donutsFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/donutsFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Donuts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/Donuts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rucafe/StoreOrderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
