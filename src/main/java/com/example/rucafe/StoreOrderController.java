@@ -32,6 +32,10 @@ public class StoreOrderController implements Initializable {
     private ObservableList<String> observeOrderList = FXCollections.observableArrayList();
     @FXML
     protected TextField subTotal;
+    @FXML
+    protected TextField salesTax;
+    @FXML
+    protected TextField total;
 
     @FXML
     protected ListView listOfOrders;
@@ -100,7 +104,7 @@ public class StoreOrderController implements Initializable {
     protected void onCancelOrder(ActionEvent event)
     {
         Alert alert;
-        if(listOfOrders.getSelectionModel().getSelectedItem() ==null)
+        if(listOfOrders.getSelectionModel().getSelectedItem()==null)
         {
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning!!");
@@ -113,15 +117,11 @@ public class StoreOrderController implements Initializable {
             //remove at the index
             //listOfOrders.remove(index);
             observeOrderList.remove(index);
+            storeOrderListMain.getListOfOrders().remove(index);
             listOfOrders.setItems(observeOrderList);
 
-
             //recalculate after removing item!!!
-
-
         }
-
-
     }
 
     /**
@@ -202,17 +202,16 @@ public class StoreOrderController implements Initializable {
 //        }
     }
 
-//    public int calculateFinalPrices(){
-//
-//
-//      //  goes through the array and based on the item's type, adds that cost
-////        for(int i =0; i<currentOrder.getOrderList().size(); i++){
-////            subTotalCost = subTotalCost + currentOrder.getOrderList().get(i).itemPrice();
-////        }
-////        //displaying the costs
-////        subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
-////        totalTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
-////        totalCost.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
-//    }
+    public void calculateFinalPrices(){
+        double subTotalCost = 0.0;
+      //  goes through the array and based on the item's type, adds that cost
+        for(int i =0; i<storeOrderListMain.getListOfOrders().size(); i++){
+            subTotalCost = subTotalCost + storeOrderListMain.getListOfOrders().get(i);
+        }
+        //displaying the costs
+        subTotal.setText("$" + String.format("%.2f",(subTotalCost)));
+        salesTax.setText("$" + String.format("%.2f",(subTotalCost*.06625)));
+        total.setText("$" + String.format("%.2f",(subTotalCost*1.06625)));
+    }
 
 }
