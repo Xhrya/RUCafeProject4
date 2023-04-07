@@ -176,10 +176,16 @@ public class Order {
         return totalWithTax;
     }
 
+    /**
+     * sets the total price of the order
+     */
     public void setTotalPrice(double price){
         this.orderPrice = price;
     }
 
+    /**
+     * gets the total price of the order
+     */
     public double getTotalPrice(){
         return this.orderPrice;
     }

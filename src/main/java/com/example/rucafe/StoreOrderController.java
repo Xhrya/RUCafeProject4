@@ -99,7 +99,6 @@ public class StoreOrderController implements Initializable {
     }
 
 
-
     /**
      * Cancels the selected order
      * @param event is under the case this order is selected
@@ -144,11 +143,8 @@ public class StoreOrderController implements Initializable {
             alert.showAndWait();
         }
         else {
-
-          //  File coffeeFile = new File("RUCafeProject4/src/main/savedOrder.txt");
-            FileWriter myWriter = new FileWriter("ExportFile.txt", true);
-
-
+//            File coffeeFile = new File("RUCafeProject4/src/main/savedOrder.txt");
+            FileWriter myWriter = new FileWriter("savedOrder.txt", true);
             for(int i =0; i<storeOrderListMain.getListOfOrders().size(); i++){
                 myWriter.write(storeOrderListMain.getListOfOrders().get(i).toString());
             }
@@ -156,11 +152,7 @@ public class StoreOrderController implements Initializable {
 
         }
 
-
         }
-
-
-
 
 
     /**
@@ -177,9 +169,6 @@ public class StoreOrderController implements Initializable {
             listOfOrders.setItems(observeOrderList);
             calculateFinalPrices();
         }
-
-
-
 //        if(storeOrderListMain != null)
 //        {
 //            orderChooser.getItems().clear();
@@ -196,6 +185,9 @@ public class StoreOrderController implements Initializable {
 //        }
     }
 
+    /**
+     * Calculates the final prices of all the orders
+     */
     public void calculateFinalPrices(){
         double subTotalCost = 0.0;
       //  goes through the array and based on the item's type, adds that cost

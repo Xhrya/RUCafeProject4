@@ -200,6 +200,9 @@ public class basketController implements Initializable {
     }
 
 
+    /**
+     * Reads from donuts file to create basket items
+     */
     private void addDonuts() throws FileNotFoundException {
         //reads through each line of the file of coffee
 
